@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{amsmath}
+\numberwithin{equation}{section} % This line adds the section numbers to eqs.
+
+\begin{document}
+\section{Introduction}
+
+Planetary boundary layer (PBL) is located at the lowest part of the atmosphere, but that does not make it a boring subject to study. In fact, due to its location, it is home to variety of different physics mechanisms (e.g. turbulence, advection) and makes PBL one of the most exciting and challenging parts of the atmosphere to study. The majority of the weather patterns we observe every day are either the direct (e.g. inversion) or indirect (e.g. ) result of PBL. Therefore, a better understanding of PBL is of crucial importance in weather prediction studies. 
+
+Height of the PBL is an important factor in defining the PBL. However, it has/is (been)/ found that PBL has no fixed and exact height and it can vary up to several kilometers in a matter of a few hours (in unstable atmosphere conditions) [source]. Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere meet and interact (exchange physics) up to the height where these interactions are carried and felt by the atmosphere [Pleim2007b]. Along with height of the PBL, stability of the PBL is of special interest amongst meteorologists and climatologists. Stability status of the PBL can tell us about the buoyancy condition of the atmosphere and the possible related phenomena (e.g. inversion).
+
+The aim of this work is to study the PBL of the Breivikeidet valley (location) and to find the relation between different physical parameters (mainly temperature, potential temperature, water vapor and wind velocity components with height) in the PBL over a course of 16 days (i.e. from March 10, 2016 to March 26, 2016). The investigated day were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL at such weather transition. This work has made extensive use of the Weather Research and Forecasting (WRF) Model [source].
+
+In chapter 2 a short theoretical background of the work is given. Chapter 3 focuses on the WRF settings. Chapter 4 and 5 present the result and discussion of the results respectively. Finally, Chapter 6 gives a short conclusion of the results.
+
+\section{Theoretical Background}
+
+In the following section a short overview of the investigated parameters along with the important equations that were used to find the value of those parameters is given.
+
+\subsection{Potential Temperature}
+
+Potential temperature ($\Theta$) is probably the most interesting parameter in this study. Potential temperature is defined as the temperature that an air parcel would have if it is brought back to a reference pressure level adiabatically.
+
+\vspace{0.5cm}
+
+\begin{equation}\label{eq:1}
+\Theta = T(\frac{P_R}{P})^K
+\end{equation}
+
+\vspace{0.5cm}
+
+In equation \ref{eq:1} $P_R$ is the reference pressure level and usually replaced by $1000$ (pressure at sea level and in mbar). P and T are pressure and temperature of the ambient environment at some point in the atmosphere. Also, $K$ is the Kappa exponent and, for dry air, it is $K = \frac{R}{C_P}\cong 0.286$.
+
+The importance of potential temperature comes from the fact that it is not affected by the physical ascending or descending of an air parcel (unlike actual temperature). Potential temperature is a measure of stratification of the atmosphere which in turn it shows how stable the atmosphere is. In other words, potential temperature is a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending how resistant the atmosphere is to the vertical motion of an air parcel,potential temperature can be positive ($\Theta > 0$), neutral ($\Theta = 0$) or negative ($\Theta < 0$). If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel. As a result of this temperature difference and following the Buoyancy force (eq. \ref{eq:2}) a downward force will act upon the air parcel.
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:2}
+F = mg\bigg(\frac{T_p - T_a}{T_a}\bigg)
+\end{equation}
+\vspace{0.25cm}
+
+Where $m$ is the mass of the air parcel and $g$ is acceleration due to gravity and $T_p$ and $T_a$ are the actual temperature of the air parcel and atmosphere respectively.
+If the value of potential temperature increases with height it shows that the air parcel is entering in a stable atmosphere and 
+
+
+
+
+
+
+\end{document}
