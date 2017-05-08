@@ -38,6 +38,7 @@ The importance of potential temperature comes from the fact that it is not affec
 \begin{equation}\label{eq:2}
 a_b = g\bigg(\frac{T_p - T_a}{T_a}\bigg)
 \end{equation}
+
 \vspace{0.25cm}
 
 Where $a_b$ is the buoyancy acceleration, $g$ is acceleration due to gravity and $T_p$ and $T_a$ are the actual temperature of the air parcel and atmosphere respectively. In other words if potential temperature increases with height, it is a sign that the air parcel is entering a stable atmosphere. On the other hand, if the air parcel on its way to higher altitudes experiences a temperature difference in a way that the temperature inside the parcel is higher than the ambient temperature of the atmosphere, the buoyancy force will be upward and air parcel will keep rising toward higher altitudes. An atmosphere in which an air parcel can travel toward higher altitudes is called an unstably stratified atmosphere. If an air parcel is located in some part of the atmosphere where there is no temperature difference between the air parcel and the ambient atmosphere then there will be no buoyancy force acting upon the air parcel and the air parcel will not move. Such atmosphere is called a neutral atmosphere.
@@ -45,11 +46,33 @@ Where $a_b$ is the buoyancy acceleration, $g$ is acceleration due to gravity and
 \section{Weather Research and Forecast (WRF) model}
 
 Weather Research and Forecast (WRF)\footnote{http://www.wrf-model.org} is a numerical weather model that is mainly used for weather research and forecast purposes. 
-For this work WRF model version 3.8 was used. Below, different parameters of the WRF model that were used in this work are explained shortly, but the reader is encouraged to see the appendix ... for a complete list of parameters in the namelist.input file of the WRF model.
+For this work WRF model version 3.8 was used. Below, different parameters of the WRF model that were used in this work are explained shortly, but the reader is encouraged to see appendix ... for a complete list of parameters that were given to the WRF model in the form of a namelist.input file.
+
+\subsection{General Structure of WRF}
+WRF is a Gudnov based model. Explain i,j and k also the middle of the cell parameters.
 
 \subsection{WRF settings}
+Generally, settings in the WRF model can be divided into ... categories where we shortly discuss some of them in the following.
 
-For the purpose of this study a three-domain model of WRF was used with the following grid points length; domain one (i.e. outermost domain) $dx = 18000$ $m$, domain two (i.e. middle domain) $dx = 6000$ $m$, and third domain (i.e. the inner most domain with finest resolution) $dx = 2000$ $m$. The model covers an area from long lat ... with nn and mm grid points in x and y direction respectively.
+\subsubsection{Domains and Dimensions}
+For the purpose of this study a three-nested-domain model was used with the following grid points length; domain one (i.e. the outermost domain) $dx = 18000$ $m$, domain two (i.e. middle domain) $dx = 6000$ $m$, and third domain (i.e. the inner most domain with finest resolution) $dx = 2000$ $m$. The model covers an area from long lat ... with nn and mm grid points in x and y direction respectively. Also, at each grid point, fifty cells are stacked on top of one another. This way WRF model will calculate some of the parameters (e.g. potential temperature, humidity) at fifty different heights.
+
+\subsubsection{Time Step}
+WRF model is based on a third order Rungekuta integration. Therefore, time step is one of the core parameters of this model and special attention has to be paid to selecting the right time step. A very small time step can be computationally very expensive and a very big time step can cause an early divergence which in turn causes the simulation to crash. In order to find the appropriate value for time step the given approach in [ref] was followed. They introduced the following criteria (eq. 3.1) based on which the value of $dt$ should be confined to a certain interval.
+\vspace{0.25cm}
+\begin{equation}
+t = ...
+\end{equation}
+
+\vspace{0.25cm}
+
+Finally, after several test runs the value of $dt$ $=$ $60$ seconds was chosen as the value of the time step.
+
+\subsubsection{Physics}
+
+For the 
+
+
 
 
 \end{document}
