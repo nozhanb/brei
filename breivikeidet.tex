@@ -32,20 +32,24 @@ Potential temperature ($\Theta$) is probably the most interesting parameter in t
 
 In equation \ref{eq:1} $P_R$ is the reference pressure level and usually replaced by $1000$ (pressure at sea level and in mbar). P and T are pressure and temperature of the ambient environment at some point in the atmosphere. Also, $K$ is the Kappa exponent and, for dry air, it is $K = \frac{R}{C_P}\cong 0.286$.
 
-The importance of potential temperature comes from the fact that it is not affected by the physical ascending or descending of an air parcel (unlike actual temperature). Potential temperature is a measure of stratification of the atmosphere which in turn it shows how stable the atmosphere is. In other words, potential temperature is a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending how resistant the atmosphere is to the vertical motion of an air parcel,potential temperature can be positive ($\Theta > 0$), neutral ($\Theta = 0$) or negative ($\Theta < 0$). If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel. As a result of this temperature difference and following the Buoyancy force (eq. \ref{eq:2}) a downward force will act upon the air parcel.
+The importance of potential temperature comes from the fact that it is not affected by the physical ascending or descending of an air parcel (unlike actual temperature). Potential temperature is a measure of stratification of the atmosphere which in turn it shows how stable the atmosphere is. In other words, potential temperature is a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending how resistant the atmosphere is to the vertical motion of an air parcel,potential temperature can be positive ($\Theta > 0$), neutral ($\Theta = 0$) or negative ($\Theta < 0$). If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel. As a result of this temperature difference and following the Buoyancy acceleration (eq. \ref{eq:2}) a downward force will act upon the air parcel.
 
 \vspace{0.5cm}
 \begin{equation}\label{eq:2}
-F = mg\bigg(\frac{T_p - T_a}{T_a}\bigg)
+a_b = g\bigg(\frac{T_p - T_a}{T_a}\bigg)
 \end{equation}
 \vspace{0.25cm}
 
-Where $m$ is the mass of the air parcel and $g$ is acceleration due to gravity and $T_p$ and $T_a$ are the actual temperature of the air parcel and atmosphere respectively.
-If the value of potential temperature increases with height it shows that the air parcel is entering in a stable atmosphere and 
+Where $a_b$ is the buoyancy acceleration, $g$ is acceleration due to gravity and $T_p$ and $T_a$ are the actual temperature of the air parcel and atmosphere respectively. In other words if potential temperature increases with height, it is a sign that the air parcel is entering a stable atmosphere. On the other hand, if the air parcel on its way to higher altitudes experiences a temperature difference in a way that the temperature inside the parcel is higher than the ambient temperature of the atmosphere, the buoyancy force will be upward and air parcel will keep rising toward higher altitudes. An atmosphere in which an air parcel can travel toward higher altitudes is called an unstably stratified atmosphere. If an air parcel is located in some part of the atmosphere where there is no temperature difference between the air parcel and the ambient atmosphere then there will be no buoyancy force acting upon the air parcel and the air parcel will not move. Such atmosphere is called a neutral atmosphere.
 
+\section{Weather Research and Forecast (WRF) model}
 
+Weather Research and Forecast (WRF)\footnote{http://www.wrf-model.org} is a numerical weather model that is mainly used for weather research and forecast purposes. 
+For this work WRF model version 3.8 was used. Below, different parameters of the WRF model that were used in this work are explained shortly, but the reader is encouraged to see the appendix ... for a complete list of parameters in the namelist.input file of the WRF model.
 
+\subsection{WRF settings}
 
+For the purpose of this study a three-domain model of WRF was used with the following grid points length; domain one (i.e. outermost domain) $dx = 18000$ $m$, domain two (i.e. middle domain) $dx = 6000$ $m$, and third domain (i.e. the inner most domain with finest resolution) $dx = 2000$ $m$. The model covers an area from long lat ... with nn and mm grid points in x and y direction respectively.
 
 
 \end{document}
