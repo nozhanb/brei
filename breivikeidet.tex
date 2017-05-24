@@ -1,6 +1,12 @@
 \documentclass[a4paper,12pt]{article}
 \renewcommand{\baselinestretch}{1.2}
+\DeclareMathSizes{12}{12}{12}{12} % {display size}{text size}{script size}{scriptscript size}.
+% the above line is where you can declare mathe size in your text (whether you want it to be the same size of your font or bigger or smaller).
+\usepackage{graphicx}	%	For graphics
 \usepackage{amsmath}
+%\usepackage{physics}	%	can be used for partial differentiation and others(needs to be installed)
+\usepackage{nth}		%	For oridnal number in the text.
+\usepackage{fmtcount}	%	For ordinal number in the text (I used this!)
 \numberwithin{equation}{section} % This line adds the section numbers to eqs.
 
 \begin{document}
@@ -10,13 +16,50 @@ Planetary boundary layer (PBL) is located at the lowest part of the atmosphere, 
 
 Height of the PBL is an important factor in defining the PBL. However, it has/is (been)/ found that PBL has no fixed and exact height and it can vary up to several kilometers in a matter of a few hours (in unstable atmosphere conditions) [source]. Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere meet and interact (exchange physics) up to the height where these interactions are carried and felt by the atmosphere [Pleim2007b]. Along with height of the PBL, stability of the PBL is of special interest amongst meteorologists and climatologists. Stability status of the PBL can tell us about the buoyancy condition of the atmosphere and the possible related phenomena (e.g. inversion).
 
-The aim of this work is to study the PBL of the Breivikeidet valley (location) and to find the relation between different physical parameters (mainly temperature, potential temperature, water vapor and wind velocity components with height) in the PBL over a course of 16 days (i.e. from March 10, 2016 to March 26, 2016). The investigated day were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL at such weather transition. This work has made extensive use of the Weather Research and Forecasting (WRF) Model [source].
+The aim of this work is to study the PBL of the Breivikeidet valley (location) and to find the relation between different physical parameters (mainly temperature, potential temperature, water vapor and wind velocity components with height) in the PBL over a course of 16 days (i.e. from March 10, 2016 to March 25, 2016). The investigated day were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL at such weather transition. This work has made extensive use of the Weather Research and Forecasting (WRF) Model [source].
 
 In chapter 2 a short theoretical background of the work is given. Chapter 3 focuses on the WRF settings. Chapter 4 and 5 present the result and discussion of the results respectively. Finally, Chapter 6 gives a short conclusion of the results.
+
+\newpage
 
 \section{Theoretical Background}
 
 In the following section a short overview of the investigated parameters along with the important equations that were used to find the value of those parameters is given.
+
+\subsection{Temperature}
+
+Probably temperature is the most important parameter in PBL since any change in temperature can have immediate impact on the other parameters of the PBL. Therefore, a close attention was paid to temperature behavior in this study. In order to have a better view of the temperature evolution throughout the PBL, an attempt was made to investigate temperature behavior not only from the height-change perspective but also from radiation balance of the surface and radiative flux divergence views. 
+
+\subsubsection{Radiation Balance}
+
+Generally, the radiation in the PBL is PBL is highly effected by the radiation balance of the surface ground specially during daytime. Radiation balance in its simplest form considers the balance between the absorption and radiation of the ground at its surface as is stated by the eq.\ref{eq:1}.
+
+\vspace{0.25cm}
+\begin{equation}
+R_N = R_{s\downarrow} + R_{s\uparrow} + R_{L\downarrow} + R_{L\uparrow}
+\end{equation}
+\vspace{0.25cm}
+
+Where the $R_N$ is the net radiation at the surface, $R_{s\downarrow}$ and $R_{L\downarrow}$ are the incoming short and longwave radiation at the surface and $R_{s\uparrow}$ and $R_{L\uparrow}$ are the short and long wave radiation from the ground respectively. It has to be noted that the $R_{s\uparrow}$ is the partial reflection of the $R_{s\downarrow}$ by the surface. The net radiation absorbed and radiated, at all wavelengths, by the ground during a sufficiently long enough period will be zero (or very close to). 
+
+Generally, during daytime shortwave from the sun is dominant and right after the sunset the longwave radiation of the ground will be dominant with their peak wavelength at $6000$ $K$ and $287$ $K$ for short and long wave radiation respectively (see Fig? and ? of the book Arya). During daytime the surface ground will warm up by absorbing the incoming shortwave radiation. At layers very close to the surface ($\sim 1 mm$) the generated heat by the ground will be transfered to the ambient air during what is called sensible heat transfer mechanism. Above that layer, the heat transfer process will be in a convective manner. This convection in turn will generate turbulence and results in vertical mixing of the PBL. As the sunset arrives, the ground will start to cool off by radiating in longwave radiation. And as a result, turbulence will slow down and the vertical mixing will weaken throughout the PBL.
+
+\subsubsection{Radiative Flux Divergence}
+
+Although radiation balance can give a simplified picture of what happens at the lowest part of the PBL close to the surface, it is not the complete picture. The concept of net radiative flux divergence/convergence is another tool that can help us to build a better picture of the influence of the radiation on different layers of air in the PBL at different heights. The rate of cooling or warming of a layer of air due to net radiation at PBL can be measured using the conservation of energy principle. Assuming a layer of air in PBL confined to a height of $z$ to $z$ $+$ $dz$, the cooling or warming rate of this layer of air due to net radiation effect can be found using the following equation: 
+
+\vspace{0.25cm}
+\begin{equation}
+\Big(\frac{\partial T}{\partial t}\Big)_R = \Big(\frac{1}{\rho c_p}\Big)\Big(\frac{\partial R_N}{\partial z}\Big)
+\end{equation}
+\vspace{0.25cm}
+
+Where $\Big(\frac{\partial T}{\partial t}\Big)_R$ is the rate of cooling/warming of an specific layer of air in PBL, $\Big(\frac{\partial R_N}{\partial z}\Big)$ $<$ 0 is the convergence rate of net radiation at height $z$ and results in air warming off and $\Big(\frac{\partial R_N}{\partial z}\Big)$ $>$ 0 is the divergence rate of net radiation at height $z$ and results in air cooling off (see fig).
+
+Several studies have found that the contribution of the shortwave radiation to the net radiative flux divergence/convergence is quite insignificant and vertical shortwave radiative heating is nearly equally distributed in the surface boundary layer (phd and references therein). On the other hand, the longwave radiative flux is highly height dependent and strongly influences the air layers in the PBL. This study will focus on the effect of the net longwave radiation on PBL at different heights.
+
+
+
 
 \subsection{Potential Temperature}
 
@@ -42,6 +85,8 @@ a_b = g\bigg(\frac{T_p - T_a}{T_a}\bigg)
 \vspace{0.25cm}
 
 Where $a_b$ is the buoyancy acceleration, $g$ is acceleration due to gravity and $T_p$ and $T_a$ are the actual temperature of the air parcel and atmosphere respectively. In other words if potential temperature increases with height, it is a sign that the air parcel is entering a stable atmosphere. On the other hand, if the air parcel on its way to higher altitudes experiences a temperature difference in a way that the temperature inside the parcel is higher than the ambient temperature of the atmosphere, the buoyancy force will be upward and air parcel will keep rising toward higher altitudes. An atmosphere in which an air parcel can travel toward higher altitudes is called an unstably stratified atmosphere. If an air parcel is located in some part of the atmosphere where there is no temperature difference between the air parcel and the ambient atmosphere then there will be no buoyancy force acting upon the air parcel and the air parcel will not move. Such atmosphere is called a neutral atmosphere.
+
+\newpage
 
 \section{Weather Research and Forecast (WRF) model}
 
@@ -72,7 +117,64 @@ Finally, after several test runs the value of $dt$ $=$ $60$ seconds was chosen a
 
 For the 
 
+\newpage
+
+\section{Discussion}
+
+\subsection{Choice of Days}
+This chapter will focus on stability and turbulence state of the PBL at Breivikeidet. In order to keep this report short only three days of the sixteen days were analysed but a complete list of figures of all days can be found in appendix ?. The three days are March \ordinalnum{15}, \ordinalnum{16}, and \ordinalnum{23}. The reason behind this choice of days is to study the behavior of PBL of the warmest, coldest and a transition day (between the warmest day and a cold day). Figure ?, shows a plot of the maximum, minimum and the average temperature of all days.
+
+\begin{figure}[H]
+	\includegraphics[width = \textwidth, height = 5cm, trim={0 0 0 5cm}]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/plot/temp/temp_av.png}
+\end{figure}
+
+The main focus of this chapter will be on the evolution of the four physical parameters with height and time (i.e. three-hour time intervals) in the atmosphere up to the height of $\sim$ 900 $m$. These parameters are water vapor mixing ratio, potential temperature, temperature, and wind speed.
+
+A suspicious feature is observable at midnight time (00:00) at the water mixing ratio, potential temperature and temperature evolution graphs. A further analysis of the feature is discussed at the end of this chapter (see ) as to whether this feature is a computational artifact or it truly is the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
+
+\subsection{The Warmest Day (March 15, 2016)}
+
+This day is the warmest day among all the sixteens day and is preceded by another warm day and followed by a cold (the transition day; see fFig.?).
+
+\subsubsection{Temperature}
+
+Figure ?? shows the distribution of the temperature at different hours of the day at different heights. It is clear that as we go through the day temperature decreases both with time and height. Temperature variation is about 1 $K$ at low heights and $\sim$ 2 $K$ at higher altitudes. In order to have a better picture, temperature variation at 2 $m$ height above the surface was plotted along with water mixing ratio at 2 $m$ (water vapor mixing ratio will be discussed in the next section). The same trend is observed at 2 $m$ throughout the day. It suggests that there is not much convection above the ground and, accordingly, a stable PBL must be present.
+
+One can calculate the latent heat released in the atm and the equivalent increase in the long wave regime and the effect of the on the ground but it is out of the scope of this work.
+
+\subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
+
+The initial analysis of the mixing ratio $q$ is similar to temperature. Mixing ratio decreases with time at all altitudes. However, mixing ratio alone can not provide a clear picture on humidity of the atmosphere. To have a clearer view, one can use relative humidity (RH) as a tracer of mixing ratio, saturation mixing ratio, and dew point in the PBL. Also, it can be investigated as to weather the decrease of the mixing ration with height is the result of precepitation or other processes. It is known that when the temperature in the atmosphere decreases (towards dew point temperature) the water vapor content of atmosphere approaches its phase transition point until the temperature has reached the dew point. At this point if the temperature drops below dew pint the vapor content of the atmosphere goes through a phase transition and is condensed to water and is dropped out of the atmosphere in form of precipitation. The first step towards finding the RH is to find the water vapor pressure at each temperature (and height). In this study Buck equation (eq. \ref{eq:3}) was used to find the saturation vapor pressure at each temperature (and height). 
+
+\vspace{0.25cm}
+\begin{equation}\label{eq:3}
+e_s = [1.0007 + (3.46 \times 10^{-6} P)] \times 6.1121 \: exp\Big(\frac{17.502\; T}{240.97 + T}\Big)
+\end{equation}
+\vspace{0.25cm}
+
+Where $e_s$ is water vapor in $Pa$, and $T$ temperature in degree Celsius $^\circ C$. Then equation \ref{eq:4} was used to find saturation mixing ratio at each temperature and height.
+
+\vspace{0.25cm}
+\begin{equation}\label{eq:4}
+w_s = 0.622 \: \frac{e_s}{P - e_s}
+\end{equation}
+\vspace{0.25cm}
+
+Where $w_s$ is the saturation mixing ratio, $P$ is pressure at each height, and $e_s$ is the water vapor ratio from eq.\ref{eq:3}. Once we have water vapor pressure, $e_s$ and saturation mixing ratio, $w_s$, relative humidity (RH) can be easily found using the following equation:
+
+\vspace{0.25cm}
+\begin{equation}
+RH\equiv\frac{w}{w_s}
+\end{equation}
+\vspace{0.25cm}
+
+Where $w$ and $w_s$ are mixing ratio and saturated mixing ratio respectively.
+
+Figure ? shows the resulting water vapor pressure against temperature and height.
 
 
 
+
+
+%https://en.wikipedia.org/wiki/Arden_Buck_equation
 \end{document}
