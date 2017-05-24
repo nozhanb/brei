@@ -58,7 +58,56 @@ Where $\Big(\frac{\partial T}{\partial t}\Big)_R$ is the rate of cooling/warming
 
 Several studies have found that the contribution of the shortwave radiation to the net radiative flux divergence/convergence is quite insignificant and vertical shortwave radiative heating is nearly equally distributed in the surface boundary layer (phd and references therein). On the other hand, the longwave radiative flux is highly height dependent and strongly influences the air layers in the PBL. This study will focus on the effect of the net longwave radiation on PBL at different heights.
 
+\subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew Point Temperature}
 
+Mixing ratio, $w$, is one of the wrf's outputs. It is defined as the mass of the water vapor (in gram) to the mass of the dry air (in kilogram). However, mixing ratio alone may not provide a clear picture on humidity of the PBL. To have a clearer view, one can use relative humidity (RH) as a tracer of mixing ratio, saturation mixing ratio, and dew point temperature, $T_{dp}$, in the PBL. Also, it can be used to trace precipitation in the atmosphere. As an air parcel rises in the atmosphere the water vapor content of the parcel approaches its dew point. (the temperature below which water vapor goes through a phase transition and condenses into water.) However, before that it the water vapor in the parcel reaches its saturation limit. It is defined as the limit where the water evaporation rate is equal to the water condensation rate. At this point the water vapor pressure of the parcel can be estimated using eq.\ref{eq:?}[paper refe]. 
+
+\vspace{0.25cm}
+\begin{equation}\label{eq:3}
+e_s = [1.0007 + (3.46 \times 10^{-6} P)] \times 6.1121 \: exp\Big(\frac{17.502\; T}{240.97 + T}\Big)
+\end{equation}
+\vspace{0.25cm}
+
+Where $e_s$ is water vapor pressure in $hPa$, $P$ is pressure in $hPa$, and $T$ temperature in degree Celsius $^\circ C$.
+Once water vapor pressure is know the saturation mixing ratio at each temperature and height can be found from the following equation:
+
+\vspace{0.25cm}
+\begin{equation}\label{eq:4}
+w_s = 0.622 \: \frac{e_s}{P - e_s}
+\end{equation}
+\vspace{0.25cm}
+
+Where $w_s$ is the saturation mixing ratio, $P$ is pressure at each height, and $e_s$ is the water vapor ratio from eq.\ref{eq:3}. Once we have mixing ratio and saturation mixing ratio, relative humidity (RH) can be easily found from the following equation:
+
+\vspace{0.25cm}
+\begin{equation}
+RH\equiv\frac{w}{w_s}
+\end{equation}
+\vspace{0.25cm}
+
+Where $w$ and $w_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation (refe).
+
+\vspace{0.25cm}
+\begin{equation}
+T_{dp} = \frac{c\gamma_m(T,RH)}{b - \gamma_m (T,RH)}
+\end{equation}
+
+where,
+
+\begin{equation}
+\gamma_m(T,RH) = ln\Bigg(\frac{RH}{100}\: exp\Big(\Big(b - \frac{T}{d}\Big)\Big(\frac{T}{c+T}\Big)\Big)\Bigg)
+\end{equation}
+
+\vspace{0.25cm}
+
+with the following set of constants,
+\begin{equation*}
+(a = 6.1121\: \text{millibar;} \quad b = 18.678; \quad c = 257.14 \:^\circ C; \quad d = 234.5 \: ^\circ C)
+\end{equation*}
+
+\vspace{0.25cm}
+
+With the above set of constants the results of the eq 2.6 will have a maximum error of $1\: \%$. However, in has to be mentioned that there are other sets of constants with lesser degree of errors but limited to a certain range of temperatures. A comparison between temperature, dew point, and humidity can give us clue as to what parts of PBL has gone through precipitation.
 
 
 \subsection{Potential Temperature}
@@ -144,33 +193,7 @@ One can calculate the latent heat released in the atm and the equivalent increas
 
 \subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
 
-The initial analysis of the mixing ratio $q$ is similar to temperature. Mixing ratio decreases with time at all altitudes. However, mixing ratio alone can not provide a clear picture on humidity of the atmosphere. To have a clearer view, one can use relative humidity (RH) as a tracer of mixing ratio, saturation mixing ratio, and dew point in the PBL. Also, it can be investigated as to weather the decrease of the mixing ration with height is the result of precepitation or other processes. It is known that when the temperature in the atmosphere decreases (towards dew point temperature) the water vapor content of atmosphere approaches its phase transition point until the temperature has reached the dew point. At this point if the temperature drops below dew pint the vapor content of the atmosphere goes through a phase transition and is condensed to water and is dropped out of the atmosphere in form of precipitation. The first step towards finding the RH is to find the water vapor pressure at each temperature (and height). In this study Buck equation (eq. \ref{eq:3}) was used to find the saturation vapor pressure at each temperature (and height). 
-
-\vspace{0.25cm}
-\begin{equation}\label{eq:3}
-e_s = [1.0007 + (3.46 \times 10^{-6} P)] \times 6.1121 \: exp\Big(\frac{17.502\; T}{240.97 + T}\Big)
-\end{equation}
-\vspace{0.25cm}
-
-Where $e_s$ is water vapor in $Pa$, and $T$ temperature in degree Celsius $^\circ C$. Then equation \ref{eq:4} was used to find saturation mixing ratio at each temperature and height.
-
-\vspace{0.25cm}
-\begin{equation}\label{eq:4}
-w_s = 0.622 \: \frac{e_s}{P - e_s}
-\end{equation}
-\vspace{0.25cm}
-
-Where $w_s$ is the saturation mixing ratio, $P$ is pressure at each height, and $e_s$ is the water vapor ratio from eq.\ref{eq:3}. Once we have water vapor pressure, $e_s$ and saturation mixing ratio, $w_s$, relative humidity (RH) can be easily found using the following equation:
-
-\vspace{0.25cm}
-\begin{equation}
-RH\equiv\frac{w}{w_s}
-\end{equation}
-\vspace{0.25cm}
-
-Where $w$ and $w_s$ are mixing ratio and saturated mixing ratio respectively.
-
-Figure ? shows the resulting water vapor pressure against temperature and height.
+The initial analysis of the mixing ratio $q$ is similar to temperature. Mixing ratio decreases with time at all altitudes. However, at 03:00 there is a shift in mixing ratio towards lower values around 700 $m$ height. Looking at temperature and potential temperature plots around the same height a sudden increase is noticeable. In order to investigate this feature (and probably other hidden features) more the procedure in 2.1.3 was followed to find the relative humidity ($RH$) and dew point temperature ($T_{dp}$). Figure ?? shows a graph of potential temperature, relative humidity, temperature and dew point. The strong and sudden change of $RH$ towards lower values is observable around $700$ $m$. 
 
 
 
