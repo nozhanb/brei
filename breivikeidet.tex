@@ -1,18 +1,26 @@
 \documentclass[a4paper,12pt]{article}
 \renewcommand{\baselinestretch}{1.2}
-\DeclareMathSizes{12}{12}{12}{12} % {display size}{text size}{script size}{scriptscript size}.
+\DeclareMathSizes{10}{10}{12}{12} % {display size}{text size}{script size}{scriptscript size}.
 % the above line is where you can declare mathe size in your text (whether you want it to be the same size of your font or bigger or smaller).
 \usepackage{graphicx}	%	For graphics
+\usepackage{caption}
+\captionsetup[table]{font=small,skip=5pt}
+% or equivalently
+%\usepackage[font=small,skip=0pt]{caption}
 \usepackage{amsmath}
 %\usepackage{physics}	%	can be used for partial differentiation and others(needs to be installed)
 \usepackage{nth}		%	For oridnal number in the text.
 \usepackage{fmtcount}	%	For ordinal number in the text (I used this!)
 \numberwithin{equation}{section} % This line adds the section numbers to eqs.
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
 \begin{document}
 \section{Introduction}
 
-Planetary boundary layer (PBL) is located at the lowest part of the atmosphere, but that does not make it a boring subject to study. In fact, due to its location, it is home to variety of different physics mechanisms (e.g. turbulence, advection) and makes PBL one of the most exciting and challenging parts of the atmosphere to study. The majority of the weather patterns we observe every day are either the direct (e.g. inversion) or indirect (e.g. ) result of PBL. Therefore, a better understanding of PBL is of crucial importance in weather prediction studies. 
+Planetary boundary layer (PBL) is located at the lowest part of the atmosphere, but that does not make it a boring subject to study. In fact, due to its location, it is home to variety of different physics mechanisms (e.g. convection, turbulence) and makes PBL one of the most exciting and challenging parts of the atmosphere to study. The majority of the weather patterns we observe every day are either the direct (e.g. inversion) or indirect (e.g. ) result of PBL. Therefore, a better understanding of PBL is of crucial importance in weather prediction studies. 
 
 Height of the PBL is an important factor in defining the PBL. However, it has/is (been)/ found that PBL has no fixed and exact height and it can vary up to several kilometers in a matter of a few hours (in unstable atmosphere conditions) [source]. Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere meet and interact (exchange physics) up to the height where these interactions are carried and felt by the atmosphere [Pleim2007b]. Along with height of the PBL, stability of the PBL is of special interest amongst meteorologists and climatologists. Stability status of the PBL can tell us about the buoyancy condition of the atmosphere and the possible related phenomena (e.g. inversion).
 
@@ -170,59 +178,125 @@ For the
 
 \section{Discussion}
 
-\subsection{Choice of Days}
-This chapter will focus on stability and turbulence state of the PBL at Breivikeidet. In order to keep this report short only three days of the sixteen days were analysed but a complete list of figures of all days can be found in appendix ?. The three days are March \ordinalnum{15}, \ordinalnum{16}, and \ordinalnum{23}. The reason behind this choice of days is to study the behavior of PBL of the warmest, coldest and a transition day (between the warmest day and a cold day). Figure ?, shows a plot of the maximum, minimum and the average temperature of all days.
+The purpose of this chapter is to study the behavior and evolution of mixing ratio (q), potential temperature ($\Theta$), temperature (T), and wind in the PBL throughout a day at Breivikeidet. Also, the study was restricted to the lowest $\sim$ 900 $m$ of the atmosphere.
 
-\begin{figure}[H]
-	\includegraphics[width = \textwidth, height = 5cm, trim={0 0 0 5cm}]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/plot/temp/temp_av.png}
+Some of the plots and some of the physical parameters show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see ?) as to whether this feature is a computational artifact or it, truly, is the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
+
+\subsection{Where is Breivikeidet?}
+
+The Breivikeidet is located at 19.43 longitude and 69.63 latitude. It is located in a valley surrounded by mountains from northeastern and southeastern directions. The set of coordinates used in this study belong to a location in this valley as shown in Fig.\ref{location}. The purpose of this choice was to capture the behavior of PBL in this valley.
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/location.png}
+\caption{The location of study (red dot) and terrain height at Breivikeidet.}
+\label{location}
 \end{figure}
 
-The main focus of this chapter will be on the evolution of the four physical parameters with height and time (i.e. three-hour time intervals) in the atmosphere up to the height of $\sim$ 900 $m$. These parameters are water vapor mixing ratio, potential temperature, temperature, and wind speed.
+\subsection{Choice of Days}
+In order to keep this report short only two days of the sixteen days were studied, but a complete list of figures of all days can be found in appendix ?. The two days are March \ordinalnum{15}, and \ordinalnum{23}. The reason behind this choice is to study the behavior of PBL of the warmest, and coldest. Fig. \ref{warmcold}, shows a plot of the maximum, minimum and the average temperature profile of all days.
 
-A suspicious feature is observable at midnight time (00:00) at the water mixing ratio, potential temperature and temperature evolution graphs. A further analysis of the feature is discussed at the end of this chapter (see ) as to whether this feature is a computational artifact or it truly is the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
+\vspace{2.5 cm}
+
+\begin{figure}[bhp]
+	\includegraphics[width = \textwidth, trim={0 0 0 5cm}]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/plot/temp/temp_av.png}
+	\caption{The temperature distribution fo all sixteen days. March 15 and March 23 were selected as the warmest and coldest days respectively.}
+	\label{warmcold}
+\end{figure}
+
+%\vspace{1 cm}
 
 \subsection{The Warmest Day (March 15, 2016)}
 
-This day is the warmest day among all the sixteens day and is preceded by another warm day and followed by a cold (the transition day; see fFig.?).
+This day is the warmest day among all the sixteens day. It is preceded by another warm day and followed by a cold (the transition day; see Fig. \ref{warmcold}).
 
 \subsubsection{Temperature}
 
-Figure ?? shows distribution of the temperature at different hours of the day at different heights. It is clear that as we go through the day temperature decreases both with time and height except the slight inclination of the temperature towards higher temperatures at 06:00 at $\sim$ 600. As discussed in section ... this could be the result of the release of latent heat by clouds at the same altitude. 
+Below is the evolution plot of the physical parameters at March 15 (Fig. \ref{march15}).
 
-Temperature profile shows 1 $K$ variation at the lowest part of the PBL and $\sim$ 2 $K$ variation at 800 $m$. These variations are not strong. Vegetation, moisture, clouds, and strong wind all could contribute to the suppression of diurnal temperature variability. Breivikeidet is predominantly covered with different types of vegetation. Also, looking at Fig. there is a relatively strong wind at this day ($\sim$ 15.5 $m/s$). As discussed in more details there are signs that this day is a cloudy day [Ariya 1983, Fig. 5.7]. 
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/march15.png}
+\caption{The dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day. In the far right-hand plot the solid bright green line shows the average of the net wind in the horizontal plane along with variations of wind components U and V. (Notice the distinctive dashed-green line at potential temperature and temperature plots at 00:00.)}
+\label{march15}
+\end{figure}
+
+\vspace{1cm}
+
+Clearly temperature drops at higher altitudes with no deflection at higher altitudes. It is evident that the PBL is quite stable up to $\sim$ 900 $m$ at at this day. However, a closer look, shows a slight divergence of temperature from the average value at 03:00 and 06:00. This divergence at early hours of the day can be a sign of presence of an inversion layer (although given the height at which this feature is observed, it is less likely that this layer is an inversion layer).The other possibility is the presence of cloud or cloud formation at this height (see 4.3.2 for more details). 
+
+Temperature does not show strong diurnal variation throughout the day (about 1 $K$ at lowest and $\sim$ 2 $K$ at 800 $m$). Vegetation, moisture, clouds, and strong winds all can contribute to the suppression of diurnal temperature variability. Considering the fact that Breivikeidet is predominantly covered with different types of vegetation and looking at water vapor, and wind velocity ($\sim$ 15.5 $m/s$) during this day it is highly probable that the low temperature variation is suppressed due to these factors [Ariya 1983, Fig. 5.7]. Also, there are signs that this day must have been a cloudy day (see below for further details) which in turn contributes to the suppression of temperature variation during.
 
 %From the surface to 100 $\sim$ $m$ the temperature profile appears to be constant at different hours of the day. The possible explanation for this behavior could be that as the sun insolation heats the ground in the morning it starts heating up the surface. The generated heat from the surface causes vertical convection which in turn results in vertical mixing of the air layers in PBL up to $\sim$ 100 $m$. However, looking at fig.? it is clear that the surface temperature does not vary much (mostly constant) during the day. Also, the 2 $m$ temperature profile shows an almost constant decrease with time during the day. It suggests that there is not much convection going on above the ground. This makes it hard for the heat convection mechanism to be the possible reason behind the observed constant temperature in the PBL. Another possible explanation could be mechanically generated turbulent as a result of wind friction by the surface and the resulting wind shear through the PBL (see section ... for more details). Looking at Fig.?? (i.e. the wind plot) and the wind velocity at different hours of the day, it is possible that the mechanically generated turbulence are the reason behind the homogeneous temperature profile in the lower part of the PBL by mixing air layers at within this height. Nevertheless, wind generated turbulence is weaker than heat-convection generated turbulence and it may be the reason that we do not see the homogeneity in temperature profile at higher than $\sim$ 100 $m$ altitudes. However, it is also possible that a combination of heat convection and mechanical mixing (or a third unnoticed mechanism) is the possible reason behind the nearly constant temperature profile within lowest $\sim$ 100 $m$ of PBL.
 
-It might be of importance to see how the energy budget of the surface changes during the day. Fig? shows the energy budget profile of the surface skin at March 15. There are several features that immediately attract attention. The bump in the middle of the day, the incoming larger-than-shortwave longwave in the middle of the day, and several troughs in the longwave radiation at the end of the day.
+It might be of interest to see how the energy budget of the surface changes during this day. Fig. \ref{budget15} shows the energy budget profile of the surface skin at March 15.
 
-In a day with clear skies the incoming shortwave is by far stronger than the incoming longwave radiation. However, in our case the incoming longwave radiation is stronger. This could mean that March 15 could have been a cloudy day. The clouds have absorbed part of the incoming shortwave radiation and re-emitted in logwave radiation. Also, some part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As, previously, mentioned there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no cloud in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
+\vspace{0.35cm}
 
-On the outgoing radiation side, the outgoing shortwave radiation is a fraction of the incoming shortwave radiation\footnote[56]{The WRF simulation does not output the outgoing shortwave radiation but it does output the albedo. The $S_{\uparrow} = (1 - a)\: S_{\downarrow}$ was used to find the outgoing shortwave radiation where $a$ is the albedo.} depending on the value of albedo of the surface at each hour. Both incoming and outgoing shortwave radiations drop to zero after sunset. At night the surface cooling starts. The surface tries to get rid of the energy that has absorbed during the day by radiating it away at infrared\footnote{Longwave radiation ($L_{\uparrow}$), also, is not provided by the WRF. The surface skin temperature was used to find the $L_{\uparrow}$ using Stefan-Boltzmann equation ($R = \sigma \: T^4$).}. 
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget15.png}
+\caption{The energy budget of the surface at March 15. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the skies. The black solid line shows the net energy budget of the ground during this day.}
+\label{budget15}
+\end{figure}
 
-Finally, the black line shows the net energy budget of the surface at March 15.As expected, in the middle of the day the energy budget of the surface raises towards positive values a sign that the surface is receiving more energy than it is emitting and the surface temperature rises. As the sunset approaches the energy budget of the surface moves towards negative values a meaning that the surface is loosing more energy than it receives a sign that the surface is cooling.
+\vspace{1cm}
 
+There are several notable features in this plot. The bump in the middle of the day, greater-than-shortwave incoming longwave in the middle of the day, and several troughs in the incoming longwave radiation towards the end of the day.
 
-One can calculate the latent heat released in the atm. and the equivalent increase in the long wave regime and the effect of the on the ground but it is out of the scope of this work.
+In a day with clear skies the incoming shortwave is by far stronger than the incoming longwave radiation (see ... for more details). However, in this plot the incoming longwave radiation is stronger. Presence of clouds could be a possible explanation for this pattern. Possibly clouds have absorbed part of the incoming shortwave radiation and re-emitted in longwave radiation. Also, part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As previously stated, there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no clouds in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
+
+On the outgoing radiation side, the outgoing shortwave radiation is a fraction of the incoming shortwave radiation\footnote{The WRF simulation does not output the outgoing shortwave radiation but it does output the albedo. The $S_{\uparrow} = (1 - a)\: S_{\downarrow}$ was used to find the outgoing shortwave radiation where $a$ is the albedo.} depending on the value of albedo of the surface at each hour. Both incoming and outgoing shortwave radiations drop to zero after sunset. At night the surface cooling starts. The surface tries to get rid of the energy that has absorbed during the day by radiating it away at infrared\footnote{Longwave radiation ($L_{\uparrow}$), also, is not provided by the WRF. The surface skin temperature was used to find the $L_{\uparrow}$ using Stefan-Boltzmann equation ($R = \sigma \: T^4$).}. 
+
+Finally, the black line shows the net energy budget of the surface during March 15. As expected, in the middle of the day the energy budget of the surface raises towards positive values a sign that the surface is receiving more energy than it is emitting and the surface temperature rises. As the sunset approaches the energy budget of the surface moves towards negative values a meaning that the surface is loosing more energy than it receives a sign that the surface is cooling.
+
+To test whether change in energy budget of the surface effects the temperature of the surface a plot of surface skin temperature variation with time and water vapor (at 2m) is shown (Fig. \ref{skinvapor15}). 
+
+\vspace{1cm}
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/skinvapor15.png}
+\caption{The blue and red lines show the water vapor at 2m and surface skin temperature respectively during March 15.}
+\label{skinvapor15}
+\end{figure}
+
+\vspace{1cm}
+
+Unlike what the energy budget from Fig. \ref{budget15} suggests there is no increase in temperature in the middle of the day. It is possible that any increase in temperature is used for evaporation of water on the surface. However, since water vapor decreases towards the end of the day, one expects an increase in temperature, but such increase is not observed. As discussed before the two troughs may be the result of clouds thinning out (or clouds clearing the sky for several minutes) and the peak in the middle signals a cloudy period. Given the fact that there is one peak in the middle of the two troughs, it is unlikely that this pattern (at the end of the day) is the result of heat absorption by the water on the surface.
+
+% % %
+%A further analysis can be done by calculating the latent heat  of the water 
+%One can calculate the latent heat released in the atm. and the equivalent increase in the long wave regime and the effect of the on the ground but it is out of the scope of this work.
+% % %
 
 \subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
 
-The initial analysis of the mixing ratio $q$ is similar to temperature. Mixing ratio decreases with time at all altitudes and the diurnal variation of the mixing ration is quite low. This is not surprising since the diurnal variation of mixing ration depends on diurnal variations of temperature (see section .. for more details on temperature variation). 
+The initial analysis of the mixing ratio $q$ is similar to temperature. Mixing ratio decreases with time at all altitudes and the diurnal variation of the mixing ratio is quite low. This is not surprising since the diurnal variation of mixing ratio depends on the diurnal variation of temperature (see section 4.3.1 for more details on temperature variation). 
 
-However, at 06:00 there is a shift in mixing ratio towards lower values around 700 $m$ height. Looking at temperature and potential temperature plots around the same height a sudden increase is noticeable. In order to investigate this feature (and probably other hidden features) more the procedure in 2.1.3 was followed to find the relative humidity ($RH$) and dew point temperature ($T_{dp}$). Figure ?? shows a graph of potential temperature, relative humidity, temperature and dew point. The strong and sudden change of $RH$ towards lower values is observable around $700$ $m$. Also, convergence of $RH$ at different hours of the day, except 21:00, toward 100 $\%$ at around ... $m$ is another noticeable feature the can be interpreted as the lifting condensation level (LCL)\footnote{Lifting condensation level (LCL) is the height up to which an air parcel's temperature will decrease under adiabatic lapse rate and once it reaches this level the air parcel will have $RH$ of 100 $\%$.} of this day. Considering the change in $RH$, potential temperature, temperature, and dew point at 06:00 it is highly probable that a precipitation has occurred at this hour. The air in PBL at this hour has reached the LCL and moved above this level. Once it has moved above this level the temperature of the air has dropped below its dew point and as a result the water vapor content of the air has released energy and condensed into water and dropped out of the air in form of precipitation. The released energy in form of latent heat from the air has resulted in an increases in the temperature of the atmosphere and, consequently, potential temperature (see. fig ...). To test this scenario the weather stations website was checked. It appears that there has been a period of precipitation in the amounts of 0.2 $mm$ and 0.1 $mm$ at 06:00 and 07:00 respectively in the morning of the March 15.
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/humidity15.png}
+\caption{Similar to Fig. \ref{march15} dashed line show the variation of physical parameters at different hours and solid black line shows the average value. Notice that the relative humidity is given in $\%$.}
+\label{humidity15}
+\end{figure}
+
+However, at 06:00 there is a shift in mixing ratio towards lower values around 700 $m$ height (Fig. \ref{march15}). Looking at temperature and potential temperature plots around the same height a sudden increase is noticeable. In order to investigate this feature more the procedure in 2.1.3 was followed to find relative humidity ($RH$) and dew point temperature ($T_{dp}$). Fig. \ref{humidity15} shows an evolution graph of mixing ratio, relative humidity, temperature and dew point. 
+
+The strong and sudden divergence of $RH$ towards lower values is visible around $700$ $m$. Also, convergence of $RH$ at different heights, toward 100 $\%$ is another noticeable feature of RH plot. The convergence behavior of RH can be a sign of presence of lifting condensation level (LCL)\footnote{Lifting condensation level (LCL) is the height up to which an air parcel's temperature will decrease under adiabatic lapse rate and once it reaches this level the air parcel will have $RH$ of 100 $\%$.} at different heights and at different hours of the day. Considering the change in $RH$, potential temperature, temperature, and dew point at 06:00 it is possible that at this hour and around this height a cloud formation process (and possibly some precipitation) has occurred. The air in PBL at this hour has reached the LCL and moved above this level. Further lifting results in temperature decreases further and below the dew point. This results in water to go through a phase transition by releasing latent heat in the atmosphere. As result of this heat release the water vapor condenses into liquid water and forms clouds. As more air is lifted more clouds are produced and as clouds are lifted up further, liquid water may fall out of clouds. This will probably explain the strong decrease in humidity in Fig. \ref{humidity15} at 06:00. Another effect of the release of latent heat in the atmosphere is increase in ambient temperature at this height which explains the slight increase in the temperature seen in Fig. \ref{march15}. Also, once air reaches its saturation limit above the LCL it no longer follows the adiabatic lapse rate, but it follows the saturated adiabatic lapse rate. This is probably the reason we observe a slight divergence of potential temperature toward higher values. To test this scenario the data from the Tromsdalen observation station was checked. It appears that there has been a period of precipitation in the amounts of 0.2 $mm$ and 0.1 $mm$ at 06:00 and 07:00 respectively in the morning of the March 15.
  
 \subsubsection{Potential Temperature}
 
-All in all, potential temperature during March 15 seems to be stable throughout the atmosphere up to $\sim$ 800 $m$. Any adiabatic lifting or sinking of an air parcel will be suppressed by the atmosphere (see eq. 2.9). Despite possible wind-induced and heat-induced turbulence during the day (specially mid day), these turbulences are not strong enough to mix the PBL at any height.
-
-
-A closer look shows a slight deviation towards lower values above $\sim$ 100 $m$ with potential temperature at in the morning (excluding 00:00) undergoing least deviation and potential temperature at night undergoing the most deviation from the average value.
-
+All in all, potential temperature during March 15 seems to be stable throughout the atmosphere up to $\sim$ 800 $m$ (see Fig. \ref{march15}). Any adiabatic lifting or sinking of an air parcel will be suppressed by the atmosphere (see eq. 2.9). Despite possible wind-induced and heat-induced turbulence during the day (specially mid day), these turbulences are not strong enough to mix the PBL at any height.
 
 \subsubsection{Wind}
 
-Wind velocity profile is shown in Fig. ?. A noticeable feature in the wind profile is the small variation of the wind velocity at different hours of the day. In a day with clear skies, it is expected that the wind velocity decreases in the middle of the day (when the absorbed radiation by the surface is at its maximum) due to heat-induced turbulence from the ground. However, since March 15 is a cloudy day (see section ? for more details) the heat-induced turbulences (if there are any) are not strong enough to weaken wind velocity. 
+Wind velocity profile is shown in Fig. \ref{march15}. A noticeable feature in wind profile is the small variation of the wind velocity at different hours of the day. In a day with clear skies, it is expected that under clear skies wind velocity decreases in the middle of the day due to heat-induced turbulence from the ground. However, since March 15 is most likely, a cloudy day (see section 4.3.1 for more details) the heat-induced turbulences (if there are any) are not strong enough to weaken wind velocity. 
 
-The other feature of the wind profile is the increase of wind velocity at higher altitudes. Friction force and air density are the possible explanation for this behavior. Closer to surface wind faces a strong friction force as it interacts with the surface and the object on the surface. However, at higher altitudes, where there is no obstacle to face, the wind velocity increases. Also, at higher altitudes density of air decreases (as result of decrease in pressure). And lower density makes it easier for the air to move around. This way wind can flow at higher velocity.
+The other feature of the wind profile is the increase of wind velocity at higher altitudes. Friction force and air density are the possible explanation for this behavior. Closer to surface wind faces a strong friction force as it interacts with the surface and the object on the surface. However, at higher altitudes, where there is no obstacle to face, the wind velocity increases. Also, at higher altitudes density of air decreases (as result of decrease in pressure). And lower density makes it easier for the air to move around.
+
+Looking closely at the wind components it is clear that the U component of the wind increases substantially with height to the point where it reaches nearly three times its value close to the surface. On the other hand, the V component does not vary significantly with height and unlike the U component it actually decreases with height.
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/richard15.png}
+\caption{The colors and lines representation is similar to Fig. \ref{march15} with the difference that the 00:00 variation has been removed. Also, the far right-hand side plot is in log scale.}
+\label{richard15}
+\end{figure}
 
 \subsubsection{Computational Artifact or Natural Behavior?}
 
@@ -233,9 +307,6 @@ Below is a graph of the ... (see Fig.?). There are several differences between t
 It is worth mentioning that the aforementioned behavior is not very noticeable at all days (weak at 14 and 20 but strong at 21 and 22 of March). Also, it appears that potential temperature and, accordingly, temperature are the parameters that suffer the most compared to mixing ratio.
 
 It is of crucial importance to know what causes this behavior but it is out of the scope of this study. However, domain decoupling could be a possible candidate for this behavior that can be further investigated.
-
-
-
 
 
 %https://en.wikipedia.org/wiki/Arden_Buck_equation
