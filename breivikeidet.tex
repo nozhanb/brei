@@ -113,8 +113,10 @@ Where $\Big(\frac{\partial T}{\partial t}\Big)_R$ is the rate of cooling/warming
 
 \subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew Point Temperature}
 
-Mixing ratio, $w$, is one of the WRF's outputs. It is defined as mass of the water vapor (in gram) to the mass of dry air (in kilogram). However, mixing ratio alone may not provide a clear picture on humidity of the PBL. To have a clearer view, one can use relative humidity (RH) as a tracer of mixing ratio, saturation mixing ratio, and dew point temperature, $T_{dp}$, in the PBL. Also, it can be used to trace precipitation in the atmosphere. As an air parcel rises in the atmosphere the water vapor content of the parcel approaches its dew point. (the temperature below which water vapor goes through a phase transition and condenses into water.) However, before that the water vapor in the parcel reaches its saturation limit. %It is defined as the limit where the water evaporation rate is equal to the water condensation rate. 
-At this point the water vapor pressure of the parcel can be estimated using eq. \ref{eq:3}[paper ref]. 
+Water vapor in atmosphere under certain conditions can turn into clouds. To examine the existence of clouds in the atmosphere water vapor alone can not provide us with enough information. Relative humidity ($RH$) and dew point temperature ($T_{dp}$) are, probably, the best indicators of cloud formation in the atmosphere. However, before we precede to deriving the required equations, the following terms need to be defined; mixing ratio ($q$), saturation mixing ratio ($q_s$), and dew point temperature. Mixing ratio is defined as mass of the water vapor to the mass of dry air in a given volume of air. Saturation mixing ratio is defined as mass of the water vapor in a given volume of air that is saturated with water vapor to the mass of dry air. In fact if, for a given air parcel, one subtracts the mixing ratio from the saturation mixing ratio of the parcel what is left would be the amount of water vapor that the parcel requires to reach its saturation level. Finally, dew point is the temperature at which water vapor goes through a phase transition (from gas to liquid) by releasing energy in the form of latent heat and condensing to liquid water.
+
+In the atmosphere, as an air parcel rises toward higher altitudes the temperature of the air parcel decreases and, accordingly, the water vapor content of the parcel approaches its dew point (its phase transition temperature). %It is defined as the limit where the water evaporation rate is equal to the water condensation rate. 
+At dew point temperature, the water vapor pressure of the parcel can be estimated using Buck equation (eq. \ref{eq:3} [paper ref]). 
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:3}
@@ -127,19 +129,19 @@ Once water vapor pressure is known the saturation mixing ratio at each temperatu
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:4}
-w_s = 0.622 \: \frac{e_s}{p - e_s}
+q_s = 0.622 \: \frac{e_s}{p - e_s}
 \end{equation}
 \vspace{0.25cm}
 
-Where $w_s$ is the saturation mixing ratio, $p$ is pressure at each height, and $e_s$ is the water vapor ratio from eq. \ref{eq:3}. Once we have mixing ratio and saturation mixing ratio, relative humidity (RH) can be easily found from the following equation:
+Where $q_s$ is the saturation mixing ratio, $p$ is pressure at each height, and $e_s$ is the water vapor ratio from eq. \ref{eq:3}. Once we have mixing ratio and saturation mixing ratio, relative humidity (RH) can be easily found from the following equation:
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:5}
-RH=\frac{w}{w_s}
+RH=\frac{q}{q_s}
 \end{equation}
 \vspace{0.25cm}
 
-Where $w$ and $w_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation [ref].
+Where $q$ and $q_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation [ref].
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:6}
@@ -166,7 +168,9 @@ With the above set of constants the result of the eq. \ref{eq:6} will have a max
 
 \subsection{Potential Temperature}
 
-Potential temperature ($\Theta$) is defined as the temperature that an air parcel would have if it is brought back to a reference pressure level adiabatically.
+In atmosphere, much of the air lifting processes are regarded as adiabatic \footnote{An adiabatic process is one under which a thermodynamic system will not exchange heat with outer world. So for such process the first law of thermodynamics becomes: $dU = -p\:dV$} processes. Therefore, an air parcel on its way to higher altitudes will follow an adiabatic laps rate \footnote{Lapse is the rate at which the temperature of an air parcel decreases with height and for dry adiabatic laps rate it is $\Gamma_{ad} \approx 10 \frac{k}{km}$.} until it reaches to its saturation level where above which it follows a saturated lapse rate until the liquid water drops out the parcel. Above this point it will follow the dry adiabatic lapse rate again (most likely on its way to the ground). During this adiabatic lifting and sinking temperature of the air parcel varies. However, the potential temperature of the air parcel remains constant.
+
+Generally, potential temperature ($\Theta$) is defined as the temperature an air parcel would have if it is brought back to a reference pressure level adiabatically. 
 
 \vspace{0.5cm}
 
@@ -176,9 +180,11 @@ Potential temperature ($\Theta$) is defined as the temperature that an air parce
 
 \vspace{0.5cm}
 
-In equation \ref{eq:7} $p_{ref}$ is the reference pressure level and usually replaced by $1000$ (pressure at sea level and in mbar), p and T are pressure and temperature of the ambient at some point in the atmosphere. Also, $k$ is the Kappa exponent and, for dry air, it is $k = \frac{R}{C_P}\cong 0.286$.
+%Potential temperature can be defined in a more unorthodox way. Let us assume that we are interested in finding the temperature-height gradient. To do so, we need an initial point and a secondary point at two different heights. Since under adiabatic conditions there will be no heat exchange in  Sine we can not simply put a thermometer at both heights (especially if the points are located high in the atmosphere) we can use pressure at the two points. to also need to no the pressure at these two points 
 
-The importance of potential temperature comes from the fact that it is not affected by ascending or descending of an air parcel (unlike actual temperature). Potential temperature is a measure of stratification of the atmosphere which in turn is a measure of stability. In other words, potential temperature is a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending how resistant the atmosphere is, potential temperature can be stable ($d\Theta/dz > 0$), neutral ($d\Theta/dz = 0$) or unstable ($d\Theta/dz < 0$). If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel. As a result of this temperature difference and following the Buoyancy acceleration (eq. \ref{eq:2}) a downward force will act upon the air parcel.
+In equation the above equation $p_{ref}$ is the reference pressure level and usually replaced by $1000$ (pressure at sea level and in mbar), p and T are pressure and temperature of the ambient at some point in the atmosphere. Also, $k$ is the Kappa exponent and, for dry air, it is $k = \frac{R}{C_P}\cong 0.286$.
+
+The importance of potential temperature comes from the fact that it is not affected by ascending or descending of an air parcel (unlike actual temperature). Potential temperature-height gradient is a measure of stratification of the atmosphere which in turn is a measure of stability. In other words, change of potential temperature with height a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending on the behavior of the potential temperature-height gradient it can be positive ($d\Theta/dz > 0$), neutral ($d\Theta/dz = 0$) or negative ($d\Theta/dz < 0$) which in turn results in three types of stable, neutral, and unstable atmosphere. If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel since atmosphere has followed, possibly, a sub-adiabatic lapse rate. Consequently, an air parcel following an adiabatic lapse rate has cooled more compared to the ambient. This temperature difference leads to a density difference with lower density (and warmer) air above and higher density (cooler) parcel below. As the high density parcel tries to enter the low density atmosphere a downward Buoyancy acceleration will act upon the air parcel. The following equation shows the Buoyancy acceleration due to temperature difference:
 
 \vspace{0.5cm}
 \begin{equation}\label{eq:2}
@@ -231,7 +237,7 @@ WRF model is based on a 3rd order Runge-Kutta integration [ref]. Therefore, time
 dt_{max} < \frac{Cr}{\sqrt{3}} \times \frac{dx}{u_{max}}
 \end{equation}
 
-where $dt_{max}$ is the desired time step, $Cr$ is the Courant number set to 1.61 in three dimensional analysis, $dx$ is the grid spacing of the largest simulation domain (set to 18000 $m$), and $u_{max}$ is the maximum expected horizontal wind speed in simulation. Special care has to be taken for the choice of $u_{max}$ since on top of the PBL wind velocities can reach as high as 100 $m/s$. Thus, setting $u_{max}$ to 100 $m/s$ could be a good choice.
+where $dt_{max}$ is the desired time step, $Cr$ is the Courant number set to 1.61 in three dimensional analysis, $dx$ is the grid spacing of the largest simulation domain (set to 18000 $m$), and $u_{max}$ is the maximum expected horizontal wind speed in simulation. Special care has to be taken for the choice of $u_{max}$ since on top of the PBL wind velocities can reach as high as 30 $m/s$. Thus, setting $u_{max}$ to 30 $m/s$ could be a good choice.
 
 %[53]
 %[21]
@@ -245,15 +251,15 @@ Also, at each grid point, fifty cells are stacked on top of one another to calcu
 
 \subsubsection{Physics}
 
-WRF uses variety of physical mechanisms to simulate the atmosphere. Probably PBL scheme is the most important set of physical mechanisms used in this work. Although very important but PBL scheme is one of the most uncertain schemes used in WRF model [ref]. Generally, in WRF model, the PBL schemes fall into one of the two groups of 	first order closure and turbulent kinetic energy (TKE) closure schemes. There are several TKE schemes available in WRF such as Bougeaukt-Lacarrére (BouLac), Mellor-Yamada-Janic (MYJ) and the Quasi-normal scale elimination (QNSE) [ref]. The MYJ PBL scheme was used for the purpose of this work.
+WRF uses a variety of physical mechanisms to simulate the atmosphere. Probably the PBL scheme is the most important set of physical mechanisms used in this work. Although very important but PBL scheme is one of the most uncertain schemes used in WRF model [ref]. This uncertainty has its origin in the complexity of the PBL's physics and the fact that it has not been studied in details. So there, probably, are some physical mechanisms that are not included in our schemes.  Generally, in WRF model, the PBL schemes fall into one of the two groups of first order closure and turbulent kinetic energy (TKE) closure schemes. There are several TKE schemes available in WRF such as Bougeaukt-Lacarrére (BouLac), Mellor-Yamada-Janic (MYJ) and the Quasi-normal scale elimination (QNSE) [ref]. The MYJ PBL scheme was used for the purpose of this work.
 
 \newpage
 
 \section{Result and Discussion}
 
-The purpose of this chapter is to study the behavior and evolution of mixing ratio (q), potential temperature ($\Theta$), temperature (T), and wind in the PBL throughout a day at Breivikeidet. Also, the study was restricted to the lowest $\sim$ 900 $m$ of the atmosphere.
+The purpose of this chapter is to study the behavior and evolution of mixing ratio (q), potential temperature ($\Theta$), temperature (T), and wind in the PBL throughout a day at Breivikeidet. Also, the study was restricted to the lowest $\sim$ 900 $m$ of the atmosphere since no exciting/interesting behaviors were observed above this height.
 
-Some of the plots and some of the physical parameters show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see 4.4) as to whether this feature is a computational artifact or it, truly, is the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
+Some of the plots and some of the physical parameters show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see 4.4) as to whether this feature is a computational artifact or whether it is truly the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
 
 \subsection{Where is Breivikeidet?}
 
@@ -272,7 +278,8 @@ In order to keep this report short only two days of the sixteen days were studie
 
 \begin{figure}[bhp]
 	\includegraphics[width = \textwidth, trim={0 0 0 5cm}]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/temp_av.png}
-	\caption{The temperature distribution fo all sixteen days. March 15 and March 23 were selected as the warmest and coldest days respectively.}
+	\caption{The maximum, minimum and, average temperature distribution for all sixteen days. March 15 and March 23 were selected as the warmest and coldest days respectively. Data are provided by Tromsdalen observation station.}
+%	\protect\footnote{https://goo.gl/rmGC6E}
 	\label{warmcold}
 \end{figure}
 
@@ -286,7 +293,7 @@ Below is the evolution plot of the physical parameters at March 15 (Fig. \ref{ma
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/march15.png}
-\caption{The dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day. In the far right-hand plot the solid bright green line shows the average of the net wind in the horizontal plane along with variations of wind components U and V. (Notice the distinctive behavior of the dashed-green line at potential temperature and temperature plots at 00:00.)}
+\caption{The dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day (taken over all time intervals). In the far right-hand plot the solid bright green line shows the average of the net wind in the horizontal plane along with variations of wind components U and V. (Notice the distinctive behavior of the dashed-green line at potential temperature and temperature plots at 00:00.)}
 \label{march15}
 \end{figure}
 
