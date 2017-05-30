@@ -1,4 +1,7 @@
 \documentclass[a4paper,12pt]{article}
+\author{Nozhan Balafkan}
+\date{}
+\title{A Model Study of the Planetary Boundary Layer at Breivikeidet Valley}
 \renewcommand{\baselinestretch}{1.2}
 \DeclareMathSizes{10}{10}{12}{12} % {display size}{text size}{script size}{scriptscript size}.
 % the above line is where you can declare mathe size in your text (whether you want it to be the same size of your font or bigger or smaller).
@@ -12,63 +15,106 @@
 \usepackage{nth}		%	For oridnal number in the text.
 \usepackage{fmtcount}	%	For ordinal number in the text (I used this!)
 \numberwithin{equation}{section} % This line adds the section numbers to eqs.
+\usepackage[english]{babel}
+\usepackage{lipsum}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
 
+%\renewcommand\sectionmark[1]{} %section doesn't set a mark
+%\makeatletter
+%\renewcommand\subsectionmark[1]{\markright{\MakeUppercase{\ifnum\c@secnumdepth >\m@ne \thesubsection \quad \fi #1}}}
+%\makeatother
+
+
 \begin{document}
+
+
+\clearpage\maketitle	% These two lines clears the pagenumbering of the title page.
+\thispagestyle{empty}
+\newpage
+
+
+\tableofcontents
+\pagenumbering{roman}
+\setcounter{page}{1}
+%\pagenumbering{arabic}
+
+\newpage
+\pagenumbering{arabic}
+
 \section{Introduction}
 
-Planetary boundary layer (PBL) is located at the lowest part of the atmosphere, but that does not make it a boring subject to study. In fact, due to its location, it is home to variety of different physics mechanisms (e.g. convection, turbulence) and makes PBL one of the most exciting and challenging parts of the atmosphere to study. The majority of the weather patterns we observe every day are either the direct (e.g. inversion) or indirect (e.g. ) result of PBL. Therefore, a better understanding of PBL is of crucial importance in weather prediction studies. 
+Planetary boundary layer (PBL) is home to a variety of different physics mechanisms and it is one of the most exciting and challenging parts of the atmosphere to study. The diversity of the weather patterns we observe every day is, to a great extent, the direct result of the complexity of PBL. Therefore, a better understanding of PBL is of crucial importance in weather prediction studies. 
 
-Height of the PBL is an important factor in defining the PBL. However, it has/is (been)/ found that PBL has no fixed and exact height and it can vary up to several kilometers in a matter of a few hours (in unstable atmosphere conditions) [source]. Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere meet and interact (exchange physics) up to the height where these interactions are carried and felt by the atmosphere [Pleim2007b]. Along with height of the PBL, stability of the PBL is of special interest amongst meteorologists and climatologists. Stability status of the PBL can tell us about the buoyancy condition of the atmosphere and the possible related phenomena (e.g. inversion).
+Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere interact and exchange physical variables (e.g. water vapor and momentum) up to the height where these interactions are carried and felt by the free atmosphere [ref].
 
-The aim of this work is to study the PBL of the Breivikeidet valley (location) and to find the relation between different physical parameters (mainly temperature, potential temperature, water vapor and wind velocity components with height) in the PBL over a course of 16 days (i.e. from March 10, 2016 to March 25, 2016). The investigated day were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL at such weather transition. This work has made extensive use of the Weather Research and Forecasting (WRF) Model [source].
+%[[Pleim2007b]]
 
-In chapter 2 a short theoretical background of the work is given. Chapter 3 focuses on the WRF settings. Chapter 4 and 5 present the result and discussion of the results respectively. Finally, Chapter 6 gives a short conclusion of the results.
+The aim of this work is to study the PBL of the Breivikeidet valley and to investigate the behavior and evolution of different physical parameters (i.e. temperature, potential temperature, water vapor and wind velocity) with height over the course of 16 days (i.e. from March 10, 2016 to March 25, 2016). The investigated days were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL during such a weather transition. To reach our purpose, this work has made extensive use of the Weather Research and Forecasting (WRF) Model [ref]. Also, it has to be stated that in this work the words ``atmosphere" and ``PBL" are used interchangeably unless it is stated otherwise. Both words refer to the lowest 900 $m$ of the atmosphere.
+
+The order of this work is as follows: in chapter 2, a short theoretical background is presented. Chapter 3 focuses on the WRF set ups. Chapter 4 presents the results and discussion of the results. Finally, Chapter 5 gives a short conclusion of the results.
 
 \newpage
 
 \section{Theoretical Background}
 
-In the following section a short overview of the investigated parameters along with the important equations that were used to find the value of those parameters is given.
+In this section a short overview of the investigated parameters along with the important equations that were used in this work is presented.
 
 \subsection{Temperature}
 
-Probably temperature is the most important parameter in PBL since any change in temperature can have immediate impact on the other parameters of the PBL. Therefore, a close attention was paid to temperature behavior in this study. In order to have a better view of the temperature evolution throughout the PBL, an attempt was made to investigate temperature behavior not only from the height-change perspective but also from radiation balance of the surface and radiative flux divergence views. 
+Probably temperature is the most important parameter in PBL since any change in temperature can have immediate impact on the other variables of the PBL (e.g. humidity and stability). Therefore, a close attention was paid to temperature behavior in this study. In order to have a better view of the temperature evolution throughout the PBL, an attempt was made to investigate temperature behavior not only from the height-change perspective but also from radiation balance of the surface and radiative flux divergence points of view. 
 
-\subsubsection{Radiation Balance}
+\subsubsection{Energy Budget and Radiation Balance Near the Surface}
 
-Generally, the radiation in the PBL is PBL is highly effected by the radiation balance of the surface ground specially during daytime. Radiation balance in its simplest form considers the balance between the absorption and radiation of the ground at its surface as is stated by the eq.\ref{eq:1}.
+Energy budget of the surface can shed light on the weather conditions of a day. It is highly affected by the diurnal variation of radiation. In fact any change in radiation balance can greatly effect the energy budget of the surface. In addition to radiation, there are other physical variables that can have contribution to the energy budget. The following equation is a simplified representation of the energy budget of the surface.
 
 \vspace{0.25cm}
-\begin{equation}
+\begin{equation}\label{eq:budget}
+R_N = H + H_L + H_G
+\end{equation}
+\vspace{0.25cm}
+
+Where $R_N$ is the net radiation received by the surface, $H$, and $H_L$ are the sensible and latent heat fluxes to (from) surface from (to) the air, and $H_G$ is the ground heat flux from or to the surface. Knowledge on the direction of these terms can aid us in realizing the status of the energy budget of the surface. Fortunately, the heat terms (i.e. right-hand side terms) in the above equation follow a simple thermodynamics rule; heat flows from source(s) with higher temperatures toward source(s) with lower temperatures. Following this principle, during day time radiation term ($R_N$) is toward the surface (downward) due to solar irradiation and heat terms, on the contrary, flow out of the surface (both to the ground and the ambient air). On the other hand, at night time $R_N$ direction becomes outward since the earth starts to cool off by radiating energy away. As result of the process, heat terms ($H$, $H_L$, and $H_G$) change direction toward the surface (the colder source) (see Arya 1983 Fig. 2.1).
+
+A closer look at the net radiation at the surface indicates that this term has its own building components. Below, a simplified version of this equation is given.
+
+\vspace{0.25cm}
+\begin{equation}\label{eq:1}
 R_N = R_{s\downarrow} + R_{s\uparrow} + R_{L\downarrow} + R_{L\uparrow}
 \end{equation}
 \vspace{0.25cm}
 
-Where the $R_N$ is the net radiation at the surface, $R_{s\downarrow}$ and $R_{L\downarrow}$ are the incoming short and longwave radiation at the surface and $R_{s\uparrow}$ and $R_{L\uparrow}$ are the short and long wave radiation from the ground respectively. It has to be noted that the $R_{s\uparrow}$ is the partial reflection of the $R_{s\downarrow}$ by the surface. The net radiation absorbed and radiated, at all wavelengths, by the ground during a sufficiently long enough period will be zero (or very close to). 
+Where $R_N$ is the net radiation of the surface, $R_{s\downarrow}$ and $R_{L\downarrow}$ are the incoming short and longwave radiation at the surface and $R_{s\uparrow}$ and $R_{L\uparrow}$ are the outgoing short and longwave radiation from the ground respectively. It has to be noted that the $R_{s\uparrow}$ is the partial reflection of the $R_{s\downarrow}$ by the surface.
 
-Generally, during daytime shortwave from the sun is dominant and right after the sunset the longwave radiation of the ground will be dominant with their peak wavelength at $6000$ $K$ and $287$ $K$ for short and long wave radiation respectively (see Fig? and ? of the book Arya). During daytime the surface ground will warm up by absorbing the incoming shortwave radiation. At layers very close to the surface ($\sim 1 mm$) the generated heat by the ground will be transfered to the ambient air during what is called sensible heat transfer mechanism. Above that layer, the heat transfer process will be in a convective manner. This convection in turn will generate turbulence and results in vertical mixing of the PBL. As the sunset arrives, the ground will start to cool off by radiating in longwave radiation. And as a result, turbulence will slow down and the vertical mixing will weaken throughout the PBL.
+Radiation balance in its simplest form considers the balance between the absorption and radiation of the ground at its surface as is stated by eq. \ref{eq:1}. Similar to energy budget of the surface, $R_N$ has a strong diurnal variation. 
+
+Generally, during daytime shortwave from the sun is dominant and in the afternoon the longwave radiation of the ground will be dominant with their peak wavelength at $6000$ $K$ and $287$ $K$ for short and long wave radiation respectively (Arya 1983 Fig. 3.1). During daytime the surface ground will warm up by absorbing the incoming shortwave radiation. At layers very close to the surface ($\sim 1 mm$) the generated heat by the ground will be transfered to the ambient air during what is called sensible heat transfer mechanism (i.e. conduction). Above that layer, the heat transfer process will be in a vertical advection manner (i.e. convection). This vertical advection in turn will generate turbulence and results in vertical mixing of the PBL. As the sunset approaches, the ground will start to cool off following eq. \ref{eq:budget} and \ref{eq:1} (i.e. through longwave radiation and heat transfer out of the surface). As a result of lack of vertical advection mechanism turbulence and vertical mixing will weaken and slow down throughout the PBL.
 
 \subsubsection{Radiative Flux Divergence}
 
-Although radiation balance can give a simplified picture of what happens at the lowest part of the PBL close to the surface, it is not the complete picture. The concept of net radiative flux divergence/convergence is another tool that can help us to build a better picture of the influence of the radiation on different layers of air in the PBL at different heights. The rate of cooling or warming of a layer of air due to net radiation at PBL can be measured using the conservation of energy principle. Assuming a layer of air in PBL confined to a height of $z$ to $z$ $+$ $dz$, the cooling or warming rate of this layer of air due to net radiation effect can be found using the following equation: 
+Although radiation balance can give a simplified picture of what happens at the lowest part of the PBL close to the surface, it is not the complete picture. The concept of net radiative flux divergence/convergence is another tool that can help us to build a better picture of the influence of the radiation on different layers of air in the PBL at different heights.
+
+Water vapor and $CO_2$ are distributed in the atmosphere at different heights with different levels of concentration. Also, these two gas components are good absorbers of longwave radiation. As a result of this feature, net radiation from the surface at night time can have significant impact on the temperature variation of different layers of air in the atmosphere (depending on the distribution of water vapor and $CO_2$). This effect is particularly strong at night time since net radiation at night is entirely at longwave radiation (see 2.1.1). On the contrary, during day time the shortwave is the dominant radiation and both water vapor and $CO_2$ are not good absorbers of shortwave which in turn results in negligible temperature variation in the atmosphere due to net radiation. 
+
+Assuming a layer of air in PBL confined to a height of $z$ to $z$ $+$ $dz$, the cooling or warming rate of this layer of air due to net radiation effect can be found using the following equation (Arya 1983, eq. 3.17 ): 
 
 \vspace{0.25cm}
-\begin{equation}
+\begin{equation}\label{divergconverge}
 \Big(\frac{\partial T}{\partial t}\Big)_R = \Big(\frac{1}{\rho c_p}\Big)\Big(\frac{\partial R_N}{\partial z}\Big)
 \end{equation}
 \vspace{0.25cm}
 
-Where $\Big(\frac{\partial T}{\partial t}\Big)_R$ is the rate of cooling/warming of an specific layer of air in PBL, $\Big(\frac{\partial R_N}{\partial z}\Big)$ $<$ 0 is the convergence rate of net radiation at height $z$ and results in air warming off and $\Big(\frac{\partial R_N}{\partial z}\Big)$ $>$ 0 is the divergence rate of net radiation at height $z$ and results in air cooling off (see fig).
+Where $\Big(\frac{\partial T}{\partial t}\Big)_R$ is the rate of cooling/warming of a layer of air in PBL between heights $z$ and $z$ + $dz$ caused by net radiation, $\Big(\frac{\partial R_N}{\partial z}\Big)$ $<$ 0 is the convergence rate of net radiation at height $z$ and results in increasing air temperature, and $\Big(\frac{\partial R_N}{\partial z}\Big)$ $>$ 0 is the divergence rate of net radiation at height $z$ and results in air cooling off (Arya 1983 Fig. 3.6). The temperature term, $\Big(\frac{\partial T}{\partial t}\Big)_R$, in eq. \ref{divergconverge} can, especially, be useful in examining the atmosphere as a sign of stability of air layers at different heights (see also 2.2).
 
-Several studies have found that the contribution of the shortwave radiation to the net radiative flux divergence/convergence is quite insignificant and vertical shortwave radiative heating is nearly equally distributed in the surface boundary layer (phd and references therein). On the other hand, the longwave radiative flux is highly height dependent and strongly influences the air layers in the PBL. This study will focus on the effect of the net longwave radiation on PBL at different heights.
+
+%Several studies have found that the contribution of the shortwave radiation to the net radiative flux divergence/convergence is quite insignificant and vertical shortwave radiative heating is nearly equally distributed in the surface boundary layer (Ph? and references therein). On the other hand, the longwave radiative flux is highly height dependent and strongly influences the air layers in the PBL. This study will focus on the effect of the net longwave radiation on PBL at different heights.
 
 \subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew Point Temperature}
 
-Mixing ratio, $w$, is one of the wrf's outputs. It is defined as the mass of the water vapor (in gram) to the mass of the dry air (in kilogram). However, mixing ratio alone may not provide a clear picture on humidity of the PBL. To have a clearer view, one can use relative humidity (RH) as a tracer of mixing ratio, saturation mixing ratio, and dew point temperature, $T_{dp}$, in the PBL. Also, it can be used to trace precipitation in the atmosphere. As an air parcel rises in the atmosphere the water vapor content of the parcel approaches its dew point. (the temperature below which water vapor goes through a phase transition and condenses into water.) However, before that it the water vapor in the parcel reaches its saturation limit. It is defined as the limit where the water evaporation rate is equal to the water condensation rate. At this point the water vapor pressure of the parcel can be estimated using eq.\ref{eq:?}[paper refe]. 
+Mixing ratio, $w$, is one of the WRF's outputs. It is defined as mass of the water vapor (in gram) to the mass of dry air (in kilogram). However, mixing ratio alone may not provide a clear picture on humidity of the PBL. To have a clearer view, one can use relative humidity (RH) as a tracer of mixing ratio, saturation mixing ratio, and dew point temperature, $T_{dp}$, in the PBL. Also, it can be used to trace precipitation in the atmosphere. As an air parcel rises in the atmosphere the water vapor content of the parcel approaches its dew point. (the temperature below which water vapor goes through a phase transition and condenses into water.) However, before that the water vapor in the parcel reaches its saturation limit. %It is defined as the limit where the water evaporation rate is equal to the water condensation rate. 
+At this point the water vapor pressure of the parcel can be estimated using eq. \ref{eq:3}[paper ref]. 
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:3}
@@ -77,26 +123,26 @@ e_s = [1.0007 + (3.46 \times 10^{-6} P)] \times 6.1121 \: exp\Big(\frac{17.502\;
 \vspace{0.25cm}
 
 Where $e_s$ is water vapor pressure in $hPa$, $P$ is pressure in $hPa$, and $T$ temperature in degree Celsius $^\circ C$.
-Once water vapor pressure is know the saturation mixing ratio at each temperature and height can be found from the following equation:
+Once water vapor pressure is known the saturation mixing ratio at each temperature and height can be found from the following equation:
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:4}
-w_s = 0.622 \: \frac{e_s}{P - e_s}
+w_s = 0.622 \: \frac{e_s}{p - e_s}
 \end{equation}
 \vspace{0.25cm}
 
-Where $w_s$ is the saturation mixing ratio, $P$ is pressure at each height, and $e_s$ is the water vapor ratio from eq.\ref{eq:3}. Once we have mixing ratio and saturation mixing ratio, relative humidity (RH) can be easily found from the following equation:
+Where $w_s$ is the saturation mixing ratio, $p$ is pressure at each height, and $e_s$ is the water vapor ratio from eq. \ref{eq:3}. Once we have mixing ratio and saturation mixing ratio, relative humidity (RH) can be easily found from the following equation:
 
 \vspace{0.25cm}
-\begin{equation}
-RH\equiv\frac{w}{w_s}
+\begin{equation}\label{eq:5}
+RH=\frac{w}{w_s}
 \end{equation}
 \vspace{0.25cm}
 
-Where $w$ and $w_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation (refe).
+Where $w$ and $w_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation [ref].
 
 \vspace{0.25cm}
-\begin{equation}
+\begin{equation}\label{eq:6}
 T_{dp} = \frac{c\gamma_m(T,RH)}{b - \gamma_m (T,RH)}
 \end{equation}
 
@@ -115,24 +161,24 @@ with the following set of constants,
 
 \vspace{0.25cm}
 
-With the above set of constants the results of the eq 2.6 will have a maximum error of $1\: \%$. However, in has to be mentioned that there are other sets of constants with lesser degree of errors but limited to a certain range of temperatures. A comparison between temperature, dew point, and humidity can give us clue as to what parts of PBL has gone through precipitation.
+With the above set of constants the result of the eq. \ref{eq:6} will have a maximum error of $1\: \%$. However, it has to be mentioned that there are other sets of constants with lesser degree of errors, but limited to a certain range of temperatures (e.g. -50 $<$ T $<$ 0 $^\circ$C). %A comparison between temperature, dew point, and humidity can give us clue as to what parts of PBL has gone through precipitation.
 
 
 \subsection{Potential Temperature}
 
-Potential temperature ($\Theta$) is probably the most interesting parameter in this study. Potential temperature is defined as the temperature that an air parcel would have if it is brought back to a reference pressure level adiabatically.
+Potential temperature ($\Theta$) is defined as the temperature that an air parcel would have if it is brought back to a reference pressure level adiabatically.
 
 \vspace{0.5cm}
 
-\begin{equation}\label{eq:1}
-\Theta = T(\frac{P_R}{P})^K
+\begin{equation}\label{eq:7}
+\Theta = T\Big(\frac{p_{ref}}{p}\Big)^k
 \end{equation}
 
 \vspace{0.5cm}
 
-In equation \ref{eq:1} $P_R$ is the reference pressure level and usually replaced by $1000$ (pressure at sea level and in mbar). P and T are pressure and temperature of the ambient environment at some point in the atmosphere. Also, $K$ is the Kappa exponent and, for dry air, it is $K = \frac{R}{C_P}\cong 0.286$.
+In equation \ref{eq:7} $p_{ref}$ is the reference pressure level and usually replaced by $1000$ (pressure at sea level and in mbar), p and T are pressure and temperature of the ambient at some point in the atmosphere. Also, $k$ is the Kappa exponent and, for dry air, it is $k = \frac{R}{C_P}\cong 0.286$.
 
-The importance of potential temperature comes from the fact that it is not affected by the physical ascending or descending of an air parcel (unlike actual temperature). Potential temperature is a measure of stratification of the atmosphere which in turn is a measure of stability. In other words, potential temperature is a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending how resistant the atmosphere is, potential temperature can be positive ($\Theta > 0$), neutral ($\Theta = 0$) or negative ($\Theta < 0$). If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel. As a result of this temperature difference and following the Buoyancy acceleration (eq. \ref{eq:2}) a downward force will act upon the air parcel.
+The importance of potential temperature comes from the fact that it is not affected by ascending or descending of an air parcel (unlike actual temperature). Potential temperature is a measure of stratification of the atmosphere which in turn is a measure of stability. In other words, potential temperature is a measure of the resistivity of the atmosphere to the vertical motion of an air parcel. Depending how resistant the atmosphere is, potential temperature can be stable ($d\Theta/dz > 0$), neutral ($d\Theta/dz = 0$) or unstable ($d\Theta/dz < 0$). If an air parcel is released and given an initial push (toward higher altitudes) in an atmosphere with positive potential temperature, the vertical motion of the air parcel will be suppressed and it will be pushed back to its initial location. Such resistant atmosphere is called an stably stratified atmosphere. In such atmosphere the actual temperature of the ambient is higher than that of the air parcel. As a result of this temperature difference and following the Buoyancy acceleration (eq. \ref{eq:2}) a downward force will act upon the air parcel.
 
 \vspace{0.5cm}
 \begin{equation}\label{eq:2}
@@ -143,48 +189,75 @@ a_b = g\bigg(\frac{T_p - T_a}{T_a}\bigg)
 
 Where $a_b$ is the buoyancy acceleration, $g$ is the acceleration due to gravity and $T_p$ and $T_a$ are the actual temperature of the air parcel and atmosphere respectively. If potential temperature increases with height, it is a sign that the air parcel is entering a stable atmosphere. On the other hand, if the air parcel, on its way to higher altitudes, experiences a temperature difference in a way that the temperature inside the parcel is higher than the ambient temperature of the atmosphere, the buoyancy force will be upward and air parcel will keep rising toward even higher altitudes. An atmosphere in which an air parcel can travel toward higher altitudes is called an unstably stratified atmosphere. If an air parcel is located in some part of the atmosphere where there is no temperature difference between the air parcel and the ambient atmosphere no buoyancy force will act upon the air parcel and it will not move. Such atmosphere is called a neutral atmosphere.
 
+\subsection{Wind}
+
+Wind flow can provide a great deal of information on the stability of the atmosphere. Wind flow can act as a good mixer in the atmosphere. It can mix physical variables such as water vapor and heat both horizontally and vertically to higher altitudes.
+
+Wind profile is highly affected by the diurnal temperature variation of the surface and thermal stability of the atmosphere. The heat-induced turbulence, from the surface, vertically transfers momentum to higher altitudes. The vertical momentums in the atmosphere act as a weakening source of wind stream by disrupting its flow in horizontal plane. As a result of this disruption the wind profile at heights close to the surface does not show strong variation. However, as the night time begins the radiative cooling of the surface results in disappearance of vertical advections and momentums. With no disrupting mechanism wind can flow stronger compared to daytime.
+
+A more reliable and quantitative parameter by which we can examine the stability of the atmosphere is the gradient Richardson number ($R_i$). The Richardson number is a measure of existence of turbulence in the atmosphere that is highly affected by the wind-height gradient. It is defined as:
+
+\vspace{0.25cm}
+\begin{equation}\label{ea:Ri}
+R_i = \frac{g}{T}\frac{\partial\Theta}{\partial Z}\Big|\frac{\partial V}{\partial Z}\Big|^{-2}
+\end{equation}
+\vspace{0.25cm}
+
+Where $R_i$ is the Richardson number, $\frac{\partial T}{\partial Z}$ is temperature-height gradient, and $\frac{\partial V}{\partial Z}$ is the wind-height gradient. As it can be seen in the above equation, the $R_i$ is strongly affected by wind-height gradient. Experimentally, the value of $R_i$ $=$ 0.25 has been defined as the border value. An environment with $R_i < 0.25$ is considered as turbulent and $R_i > 0.25$ is indicative of an environment with weak or decaying turbulence. Also, $R_i$ can be used as a PBL height indicator by tracing the existence of turbulence at different heights.
+
 \newpage
 
 \section{Weather Research and Forecast (WRF) model}
 
-Weather Research and Forecast (WRF)\footnote{http://www.wrf-model.org} is a numerical weather model that is mainly used for weather research and forecast purposes. 
-For the purpose this work WRF model version 3.8 (the latest version at the time of writing this report) was used. Below, different parameters of the WRF model that were used in this work are explained shortly, but the reader is encouraged to see [tor] and [WRF user] for a detailed discussion of the choice of different parameters used in WRF model. Also, appendix ... shows the choice of different parameters for the purpose of this work in the form of a namelist.input file. 
+Weather Research and Forecast (WRF)\footnote{http://www.wrf-model.org} is a numerical weather model that is mainly used for weather research and forecast purposes.
+For the purpose of this work WRF model version 3.8 (the latest version at the time of writing this report) was used. Below, only the most important parameters of the WRF model that were used in this work are shortly explained, but the reader is encouraged to see [ref] and [ref] for a detailed discussion of the choice of different parameters used in WRF model. Also, appendix ? shows the choice of different parameters that were used in this work in the form of a namelist file. 
+
+%[ref]:tor
+%[wrf user]
 
 %\subsection{General Structure of WRF}
 %WRF is a Gudnov based model. Explain i,j and k also the middle of the cell %parameters.
 
-\subsection{WRF settings}
-Generally, settings in the WRF model can be divided into ... categories where we shortly discuss some of them in the following.
+\subsection{WRF Setup}
 
-\subsubsection{Domains and Dimensions}
-For the purpose of this study a three-nested-domain model was used with the following grid points length; domain one (i.e. the outermost domain) $dx = 18000$ $m$, domain two (i.e. middle domain) $dx = 6000$ $m$, and third domain (i.e. the inner most domain with finest resolution) $dx = 2000$ $m$. The model covers an area from long lat ... with nn and mm grid points in x and y direction respectively. Also, at each grid point, fifty cells are stacked on top of one another. This way WRF model will calculate some of the parameters (e.g. potential temperature, humidity) at fifty different heights.
+Most of the WRF setups are done by the namelist.input file. This file controls the number of domains and many different parameters across all domains. The sets of parameters used in this work can be divided into four groups of time control, domains, physics, and data.
 
 \subsubsection{Time Step}
-WRF model is based on a 3rd order Runge-Kutta integration [53]. Therefore, time step is one of the core parameters of this model and special attention has to be paid to selecting the right time step. A very small time step can be computationally very expensive and a very big time step can cause an early divergence which in turn causes the simulation to crash. In order to find the appropriate value for the time step the Courant-Fredrichs-Lewy (CFL) condition and maximum Courant number by  was followed [21]. They introduced a minimum and maximum value for the time step (eq. 3.1) based on which the value of $dt$ should be confined to a certain interval.
+
+WRF model is based on a 3rd order Runge-Kutta integration [ref]. Therefore, time step is one of the core parameters of this model and special attention has to be paid to selecting the right time step. A small time step can be computationally very expensive and a big time step can cause an early divergence which in turn causes disruption of the process. In order to find the appropriate value for the time step the Courant-Fredrichs-Lewy (CFL) condition and maximum Courant number were used [ref][ref]. The following equation was used to find the appropriate time step according to CFL and Courant number.
+
 \vspace{0.25cm}
 \begin{equation}
-t = ...
+dt_{max} < \frac{Cr}{\sqrt{3}} \times \frac{dx}{u_{max}}
 \end{equation}
 
+where $dt_{max}$ is the desired time step, $Cr$ is the Courant number set to 1.61 in three dimensional analysis, $dx$ is the grid spacing of the largest simulation domain (set to 18000 $m$), and $u_{max}$ is the maximum expected horizontal wind speed in simulation. Special care has to be taken for the choice of $u_{max}$ since on top of the PBL wind velocities can reach as high as 100 $m/s$. Thus, setting $u_{max}$ to 100 $m/s$ could be a good choice.
+
+%[53]
+%[21]
 \vspace{0.25cm}
 
-Finally, after several test runs the value of $dt$ $=$ $60$ seconds was chosen as the value of the time step.
+Eventually, after several test runs, $dt$ $=$ $60$ seconds was chosen as the final value for time step.
 
-\subsubsection{Planetary Boundary Layer Model}
+\subsubsection{Coordinates and Domains}
+For the purpose of this study a three-nested-domain model was used with the following grid points length; domain one (the outermost domain) $dx = 18000$ $m$, domain two (middle domain) $dx = 6000$ $m$, and third domain (inner most domain with finest resolution) $dx = 2000$ $m$. %The innermost domain covers an area from long lat ... with nn and mm grid points in east-west and south-north direction respectively (see appendix ? for more details on other domains). 
+Also, at each grid point, fifty cells are stacked on top of one another to calculate the related parameters (e.g. potential temperature) at fifty different height levels.
 
-For the 
+\subsubsection{Physics}
+
+WRF uses variety of physical mechanisms to simulate the atmosphere. Probably PBL scheme is the most important set of physical mechanisms used in this work. Although very important but PBL scheme is one of the most uncertain schemes used in WRF model [ref]. Generally, in WRF model, the PBL schemes fall into one of the two groups of 	first order closure and turbulent kinetic energy (TKE) closure schemes. There are several TKE schemes available in WRF such as Bougeaukt-Lacarrére (BouLac), Mellor-Yamada-Janic (MYJ) and the Quasi-normal scale elimination (QNSE) [ref]. The MYJ PBL scheme was used for the purpose of this work.
 
 \newpage
 
-\section{Discussion}
+\section{Result and Discussion}
 
 The purpose of this chapter is to study the behavior and evolution of mixing ratio (q), potential temperature ($\Theta$), temperature (T), and wind in the PBL throughout a day at Breivikeidet. Also, the study was restricted to the lowest $\sim$ 900 $m$ of the atmosphere.
 
-Some of the plots and some of the physical parameters show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see ?) as to whether this feature is a computational artifact or it, truly, is the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
+Some of the plots and some of the physical parameters show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see 4.4) as to whether this feature is a computational artifact or it, truly, is the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
 
 \subsection{Where is Breivikeidet?}
 
-The Breivikeidet is located at 19.43 longitude and 69.63 latitude. It is located in a valley surrounded by mountains from northeastern and southeastern directions. The set of coordinates used in this study belong to a location in this valley as shown in Fig.\ref{location}. The purpose of this choice was to capture the behavior of PBL in this valley.
+The Breivikeidet is located at $19.43^\circ N$ and $69.63^\circ E$. It is located in a valley surrounded by mountains from northeastern and southeastern directions. The set of coordinates used in this study belong to a location in this valley as shown in Fig.\ref{location}. The purpose of this choice was to capture the behavior of PBL in this valley.
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/location.png}
@@ -193,12 +266,12 @@ The Breivikeidet is located at 19.43 longitude and 69.63 latitude. It is located
 \end{figure}
 
 \subsection{Choice of Days}
-In order to keep this report short only two days of the sixteen days were studied, but a complete list of figures of all days can be found in appendix ?. The two days are March \ordinalnum{15}, and \ordinalnum{23}. The reason behind this choice is to study the behavior of PBL of the warmest, and coldest. Fig. \ref{warmcold}, shows a plot of the maximum, minimum and the average temperature profile of all days.
+In order to keep this report short only two days of the sixteen days were studied, but a complete list of figures of all days can be found in appendix ?. The two days are March 15, and 23. Fig. \ref{warmcold}, shows a plot of the maximum, minimum and the average temperature profile of all days.
 
 \vspace{2.5 cm}
 
 \begin{figure}[bhp]
-	\includegraphics[width = \textwidth, trim={0 0 0 5cm}]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/plot/temp/temp_av.png}
+	\includegraphics[width = \textwidth, trim={0 0 0 5cm}]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/temp_av.png}
 	\caption{The temperature distribution fo all sixteen days. March 15 and March 23 were selected as the warmest and coldest days respectively.}
 	\label{warmcold}
 \end{figure}
@@ -207,23 +280,21 @@ In order to keep this report short only two days of the sixteen days were studie
 
 \subsection{The Warmest Day (March 15, 2016)}
 
-This day is the warmest day among all the sixteens day. It is preceded by another warm day and followed by a cold (the transition day; see Fig. \ref{warmcold}).
-
 \subsubsection{Temperature}
 
 Below is the evolution plot of the physical parameters at March 15 (Fig. \ref{march15}).
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/march15.png}
-\caption{The dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day. In the far right-hand plot the solid bright green line shows the average of the net wind in the horizontal plane along with variations of wind components U and V. (Notice the distinctive dashed-green line at potential temperature and temperature plots at 00:00.)}
+\caption{The dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day. In the far right-hand plot the solid bright green line shows the average of the net wind in the horizontal plane along with variations of wind components U and V. (Notice the distinctive behavior of the dashed-green line at potential temperature and temperature plots at 00:00.)}
 \label{march15}
 \end{figure}
 
 \vspace{1cm}
 
-Clearly temperature drops at higher altitudes with no deflection at higher altitudes. It is evident that the PBL is quite stable up to $\sim$ 900 $m$ at at this day. However, a closer look, shows a slight divergence of temperature from the average value at 03:00 and 06:00. This divergence at early hours of the day can be a sign of presence of an inversion layer (although given the height at which this feature is observed, it is less likely that this layer is an inversion layer).The other possibility is the presence of cloud or cloud formation at this height (see 4.3.2 for more details). 
+Clearly temperature drops at higher altitudes with no deflection at higher altitudes. It is evident that the PBL is quite stable up to $\sim$ 900 $m$ at at this day. However, a closer look, shows a slight divergence of temperature from the average value at 03:00 and 06:00. This divergence at early hours of the day can be a sign of presence of an inversion layer (although given the height at which this feature is observed, it is less likely that this layer is an inversion layer). The other possibility is the presence of cloud or cloud formation at this height (see 4.3.2 for more details). 
 
-Temperature does not show strong diurnal variation throughout the day (about 1 $K$ at lowest and $\sim$ 2 $K$ at 800 $m$). Vegetation, moisture, clouds, and strong winds all can contribute to the suppression of diurnal temperature variability. Considering the fact that Breivikeidet is predominantly covered with different types of vegetation and looking at water vapor, and wind velocity ($\sim$ 15.5 $m/s$) during this day it is highly probable that the low temperature variation is suppressed due to these factors [Ariya 1983, Fig. 5.7]. Also, there are signs that this day must have been a cloudy day (see below for further details) which in turn contributes to the suppression of temperature variation during.
+Temperature does not show strong diurnal variation throughout the day (about 1 $K$ at lowest and $\sim$ 2 $K$ at 800 $m$). Vegetation, moisture, clouds, and strong winds all can contribute to the suppression of diurnal temperature variability. Considering the fact that Breivikeidet is predominantly covered with different types of vegetation and looking at water vapor and wind velocity ($\sim$ 15.5 $m/s$) during this day it is highly probable that suppression of the temperature variation is due to these factors [Ariya 1983, Fig. 5.7]. Also, there are signs that this day must have been a cloudy day (see below for further details) which in turn contributes to the suppression of temperature variation during.
 
 %From the surface to 100 $\sim$ $m$ the temperature profile appears to be constant at different hours of the day. The possible explanation for this behavior could be that as the sun insolation heats the ground in the morning it starts heating up the surface. The generated heat from the surface causes vertical convection which in turn results in vertical mixing of the air layers in PBL up to $\sim$ 100 $m$. However, looking at fig.? it is clear that the surface temperature does not vary much (mostly constant) during the day. Also, the 2 $m$ temperature profile shows an almost constant decrease with time during the day. It suggests that there is not much convection going on above the ground. This makes it hard for the heat convection mechanism to be the possible reason behind the observed constant temperature in the PBL. Another possible explanation could be mechanically generated turbulent as a result of wind friction by the surface and the resulting wind shear through the PBL (see section ... for more details). Looking at Fig.?? (i.e. the wind plot) and the wind velocity at different hours of the day, it is possible that the mechanically generated turbulence are the reason behind the homogeneous temperature profile in the lower part of the PBL by mixing air layers at within this height. Nevertheless, wind generated turbulence is weaker than heat-convection generated turbulence and it may be the reason that we do not see the homogeneity in temperature profile at higher than $\sim$ 100 $m$ altitudes. However, it is also possible that a combination of heat convection and mechanical mixing (or a third unnoticed mechanism) is the possible reason behind the nearly constant temperature profile within lowest $\sim$ 100 $m$ of PBL.
 
@@ -241,7 +312,7 @@ It might be of interest to see how the energy budget of the surface changes duri
 
 There are several notable features in this plot. The bump in the middle of the day, greater-than-shortwave incoming longwave in the middle of the day, and several troughs in the incoming longwave radiation towards the end of the day.
 
-In a day with clear skies the incoming shortwave is by far stronger than the incoming longwave radiation (see ... for more details). However, in this plot the incoming longwave radiation is stronger. Presence of clouds could be a possible explanation for this pattern. Possibly clouds have absorbed part of the incoming shortwave radiation and re-emitted in longwave radiation. Also, part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As previously stated, there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no clouds in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
+In a day with clear skies the incoming shortwave is by far stronger than the incoming longwave radiation (see ... for more details). However, in this plot the incoming longwave radiation is stronger. Presence of clouds could be a possible explanation for what we observe here. Possibly clouds have absorbed part of the incoming shortwave radiation and re-emitted in longwave radiation. Also, part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As previously stated, there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no clouds in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
 
 On the outgoing radiation side, the outgoing shortwave radiation is a fraction of the incoming shortwave radiation\footnote{The WRF simulation does not output the outgoing shortwave radiation but it does output the albedo. The $S_{\uparrow} = (1 - a)\: S_{\downarrow}$ was used to find the outgoing shortwave radiation where $a$ is the albedo.} depending on the value of albedo of the surface at each hour. Both incoming and outgoing shortwave radiations drop to zero after sunset. At night the surface cooling starts. The surface tries to get rid of the energy that has absorbed during the day by radiating it away at infrared\footnote{Longwave radiation ($L_{\uparrow}$), also, is not provided by the WRF. The surface skin temperature was used to find the $L_{\uparrow}$ using Stefan-Boltzmann equation ($R = \sigma \: T^4$).}. 
 
@@ -286,28 +357,100 @@ All in all, potential temperature during March 15 seems to be stable throughout 
 
 \subsubsection{Wind}
 
-Wind velocity profile is shown in Fig. \ref{march15}. A noticeable feature in wind profile is the small variation of the wind velocity at different hours of the day. In a day with clear skies, it is expected that under clear skies wind velocity decreases in the middle of the day due to heat-induced turbulence from the ground. However, since March 15 is most likely, a cloudy day (see section 4.3.1 for more details) the heat-induced turbulences (if there are any) are not strong enough to weaken wind velocity. 
-
-The other feature of the wind profile is the increase of wind velocity at higher altitudes. Friction force and air density are the possible explanation for this behavior. Closer to surface wind faces a strong friction force as it interacts with the surface and the object on the surface. However, at higher altitudes, where there is no obstacle to face, the wind velocity increases. Also, at higher altitudes density of air decreases (as result of decrease in pressure). And lower density makes it easier for the air to move around.
-
-Looking closely at the wind components it is clear that the U component of the wind increases substantially with height to the point where it reaches nearly three times its value close to the surface. On the other hand, the V component does not vary significantly with height and unlike the U component it actually decreases with height.
+Wind velocity profile is shown in Fig. \ref{march15}. A noticeable feature in wind profile is the wind shear at heights close to the surface. In order to have a better understanding of the wind profile, wind components and were plot separately along with Richardson number (Ri) and potential temperature (see Fig. \ref{richard15}).
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/richard15.png}
-\caption{The colors and lines representation is similar to Fig. \ref{march15} with the difference that the 00:00 variation has been removed. Also, the far right-hand side plot is in log scale.}
+\caption{The colors and lines representation is similar to Fig. \ref{march15} with the difference that the 00:00 variation has been removed. Notice that the 00:00 lines were removed due to their effect on physical parameters (specially Ri).}
 \label{richard15}
 \end{figure}
 
-\subsubsection{Computational Artifact or Natural Behavior?}
+Richardson number can give information on the turbulence state of the atmosphere. Looking at Ri and wind components (specially v component) it appears that at heights very close to the surface ($<$ 30 $m$) the PBL is turbulent. This agrees with our earlier results of low vertical mixing of the surface due to insufficient solar insolation during this day to warm up the surface (see 4.3.1. and 4.3.2). As a result, the wind shear will not decay during the day.
 
-As it was mentioned in the beginning of this chapter, in some of the figures (e.g. Fig.) at the time 00:00 most of the parameters show a peculiar behavior that is not seen at other times of the day. Thus, it was decided to exclude this time interval from the discussion part. However, it is of special interest as to correctly recognize whether this behavior is a computational artifact or the natural behavior of those physical parameters at that time. 
+On the other hand, as we move towards higher altitudes the Ri number increases well beyond 0.25 limit. This results in intermittent and decaying turbulence at high altitudes. However, at heights above $\sim$ 700 $m$ the Ri number unusually increases at several hours (e.g.12:00). Given the fact that at about the same heights other time intervals (e.g. 15:00) have Ri numbers with reasonable values, it is unlikely that the Ri values in this plot are unreliable. This feature needs further inspection. 
 
-Below is a graph of the ... (see Fig.?). There are several differences between this graph and the other ones. The first and most important difference is the time interval used to make this plot. Unlike other figures, the physical parameters in this graph are plotted at ten-minute intervals (the smallest possible interval for the outputs of this simulation; see ... for more details) both before and after midnight hour. The aim was to test whether this behavior happens at 00:00 and then gradually converges towards later values or it happens at 00:00 and then suddenly jumps to the later values. The former behavior means it is a sign that this is the natural behavior of the physical parameter. However, if the latter is true it is highly probable that this behavior is a computational artifact. From the graph it is clear that there is sudden jump from 00:00 to later values that support the computational artifact.
+%The other feature of the wind profile is the increase of wind velocity at higher altitudes. Friction force and air density are the possible explanation for this behavior. Closer to surface wind faces a strong friction force as it interacts with the surface and the object on the surface. However, at higher altitudes, where there is no obstacle to face, the wind velocity increases. Also, at higher altitudes density of air decreases (as result of decrease in pressure). And lower density makes it easier for the air to move around.
 
-It is worth mentioning that the aforementioned behavior is not very noticeable at all days (weak at 14 and 20 but strong at 21 and 22 of March). Also, it appears that potential temperature and, accordingly, temperature are the parameters that suffer the most compared to mixing ratio.
+\subsection{Computational Artifact or Natural Behavior?}
 
-It is of crucial importance to know what causes this behavior but it is out of the scope of this study. However, domain decoupling could be a possible candidate for this behavior that can be further investigated.
+As it was mentioned in the beginning of this chapter, in some of the figures (e.g. Fig.) at the time 00:00 most of the parameters show a peculiar behavior that is not seen at other times of the day. Thus, it was decided to exclude this time interval from the discussion part. However, it is of special interest as to correctly recognize whether this behavior is a computational artifact or the natural behavior of those physical parameters. 
 
+Figure \ref{artifact} shows similar parameters as Fig. \ref{march15} with one major difference. Fig. \ref{artifact} shows the evolution of these parameters at ten-minute intervals. The ten-minute interval is the lowest time resolution of this work. The aim is to test whether this behavior happens at 00:00 and then gradually converges towards later values or it happens at 00:00 and then suddenly jumps to later values. The former behavior is a sign that this is the natural behavior of the physical parameters. However, if the latter happens it is highly probable that this behavior is a computational artifact. Considering the behavior of parameters in Fig. \ref{artifact}, it appears that there is a gradual convergence from 00:00 to later values in potential temperature, temperature, and the V component of the wind. However, before we jump to conclusion, a closer look at mixing ratio and U component of the wind suggests other wise. A sudden jump in mixing ratio and U component of the wind graphs is more obvious.
+
+Also, it is worth mentioning that the jump behavor at three-hour intervals is not very noticeable at all days (weak jumps at 14 and 20 but very strong jumps at 21 and 22 of March). Also, it appears that potential temperature and, accordingly, temperature are the parameters that suffer the most from this jump behavior.
+
+Considering the observed behavior, it is better not to come to any conclusions on the nature of this behavior until further studies are done. A possible reason for this behavior could be the choice of PBL scheme in the WRF model. However, investigating this possibility is beyond the scope of this work.
+
+%It is of crucial importance to know what causes this behavior, but it is beyond the scope of this study. However, domain decoupling could be a possible candidate for further investigation.
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/artifact.png}
+\caption{Unlike Fig. \ref{march15} the time intervals in this plot are ten-minute intervals. Also, the average value of each parameter is not shown.}
+\label{artifact}
+\end{figure}
+
+
+\subsection{The Coldest Day (March 23, 2016)}
+
+\subsubsection{Temperature}
+
+Below is the evolution plot of the physical parameters at March 23 (Fig. \ref{march23}). Generally, temperature shows a decreasing behavior in the atmosphere except an slight deviation around $\sim$ 400 $m$.
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/march23.png}
+\caption{Similar to Fig. \ref{march15} dashed and solid lines show the three-hourly and average behavior of the physical parameters. The solid bright green line shows the average of the net wind in the horizontal plane.}
+\label{march23}
+\end{figure}
+
+\vspace{0.5cm}
+
+Similar to day \ordinalnum{15} the energy budget of the day 23 was investigated. Fig. \ref{budget23} shows the energy budget of this day. Interestingly, during this day there is an interval of strong incoming shortwave that clearly dominates the incoming radiation. This can be a sign that at this time the sky has been clear. As a result of this strong incoming shortwave radiation the energy budget of the earth progressively increases. This increase continues until the sunset approaches where the intensity of shortwave decreases and the incoming longwave radiation dominates. Also, as a result of increase in the energy budget of the earth it is likely that this has had more heat-induced turbulence and vertical mixing close to the surface specially in the middle of the day. 
+
+\vspace{0.35cm}
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget23.png}
+\caption{The energy budget of the surface at March 23. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net energy budget of the ground during this day.}
+\label{budget23}
+\end{figure}
+
+\vspace{0.35cm}
+
+\subsubsection{Potential Temperature}
+
+Unlike March 15 the potential temperature during March 23 is not very stable at low altitudes. At early morning (03:00) PBL is stable but as the sunrise approached the potential temperature becomes less stable. At 12:00 an slight shift in potential temperature towards lower temperatures is observable. This shift shows an instability in PBL up to the height of $\sim$ 100 $m$. However, around afternoon and close to the sunset hour (18:00) the PBL becomes stable again. The energy budget plot (Fig. \ref{budget23}) can explain this behavior precisely. At earl hours of the day there is no solar insolation and the PBL is quite stable. However, through the day the solar irradiation warms up the surface until mid-day time where it reaches its maximum. At this time the surface temperature has reached its maximum and heat convection generated by the surface causes all types of vertical mixing mechanisms above the surface. As a result of this vertical mixing  the lower part of PBL becomes unstable. This process continues unitl the sunset time where the PBL becomes stable again.
+
+\subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
+
+Looking at mixing ratio and RH (Fig. \ref{humidity23}) we can see a trend. In the beginning of the day the water vapor and RH have relatively low values, but as we go through the day the water vapor and, accordingly, RH increase until they reach their maximum value in the middle of the day (at 12:00) close to the surface. This agrees with our results from the last section that in the middle of the day the incoming shortwave radiation reaches its maximum value which in turn increases the water evaporation and RH at this time (see 4.5.1 for more details).
+
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/humidity23.png}
+\caption{Similar to Fig. \ref{humidity15} dashed line show the variation of physical parameters at different hours and solid black line shows the average value. Notice that the relative humidity is given in $\%$.}
+\label{humidity23}
+\end{figure}
+
+\subsubsection{Wind}
+
+
+
+
+
+
+
+
+\newpage
+
+\section {Conclusion}
+
+In this study time/height behavior and evolution of several physical parameters within the PBL of the Breivikeidet valley at two different days were investigated. The analysis of March 15 suggests that this day must have been a cloudy day with some precipitation. The surface energy budget of this day also confirms this. As a result of low solar irradiation during this day there is no/low heat-induced turbulence from the surface which in turn results in a stable PBL throughout the atmosphere. Also, this day is particularly windy and there is fair amount of turbulence close to the surface regarding the Ri number.
+
+Analysis of the surface energy budget of the day March 23, however, shows periods of strong solar irradiation. Progressive increase and decrease of water vapor and RH towards the middle and end of the day, respectively, confirms this. In addition, potential temperature shows signs of weak instability at heights close to the surface. This is not unexpected since solar irradiation warms up the surface and, consequently, heat-generated turbulences are formed. And the resulting turbulent creates a destabilized PBL and weakens the wind flow in this region of the PBL.  
+
+\newpage
+
+\section*{Refernce}
 
 %https://en.wikipedia.org/wiki/Arden_Buck_equation
 
