@@ -3,7 +3,7 @@
 \date{}
 \title{A Model Study of the Planetary Boundary Layer at Breivikeidet Valley}
 \renewcommand{\baselinestretch}{1.2}
-\DeclareMathSizes{10}{10}{12}{12} % {display size}{text size}{script size}{scriptscript size}.
+\DeclareMathSizes{10}{10}{10}{12} % {display size}{text size}{script size}{scriptscript size}.
 % the above line is where you can declare mathe size in your text (whether you want it to be the same size of your font or bigger or smaller).
 \usepackage{graphicx}	%	For graphics
 \usepackage{caption}
@@ -68,7 +68,7 @@ Probably temperature is the most important parameter in PBL since any change in 
 
 \subsubsection{Energy Budget and Radiation Balance Near the Surface}
 
-Energy budget of the surface can shed light on the weather conditions of a day. It is highly affected by the diurnal variation of radiation. In fact any change in radiation balance can greatly effect the energy budget of the surface. In addition to radiation, there are other physical variables that can have contribution to the energy budget. The following equation is a simplified representation of the energy budget of the surface.
+Energy budget of the surface can shed light on the weather conditions of a day. It is highly affected by the diurnal variation of radiation. Generally, energy budget near the surface is defined as the balance between radiative and heat energy terms. The following equation is a simplified representation of the energy budget near the surface.
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:budget}
@@ -76,7 +76,7 @@ R_N = H + H_L + H_G
 \end{equation}
 \vspace{0.25cm}
 
-Where $R_N$ is the net radiation received by the surface, $H$, and $H_L$ are the sensible and latent heat fluxes to (from) surface from (to) the air, and $H_G$ is the ground heat flux from or to the surface. Knowledge on the direction of these terms can aid us in realizing the status of the energy budget of the surface. Fortunately, the heat terms (i.e. right-hand side terms) in the above equation follow a simple thermodynamics rule; heat flows from source(s) with higher temperatures toward source(s) with lower temperatures. Following this principle, during day time radiation term ($R_N$) is toward the surface (downward) due to solar irradiation and heat terms, on the contrary, flow out of the surface (both to the ground and the ambient air). On the other hand, at night time $R_N$ direction becomes outward since the earth starts to cool off by radiating energy away. As result of the process, heat terms ($H$, $H_L$, and $H_G$) change direction toward the surface (the colder source) (see Arya 1983 Fig. 2.1).
+Where $R_N$ is the net radiation received by the surface, $H$, and $H_L$ are the sensible and latent heat fluxes to (from) surface from (to) the air, and $H_G$ is the ground heat flux from or to the surface. Knowledge on the direction of these terms can aid us in realizing the status of the energy budget near the surface. Fortunately, the heat terms (i.e. right-hand side terms) in the above equation follow a simple thermodynamics rule; heat flows from source(s) with higher temperatures toward source(s) with lower temperatures. Following this principle, during day-time radiation term ($R_N$) is toward the surface (downward) due to solar irradiation and heat terms, on the contrary, flow out of the surface (both to the ground and the ambient air). On the other hand, at night-time $R_N$ direction becomes outward since the earth starts to cool off by radiating energy away. As result of this process, heat terms ($H$, $H_L$, and $H_G$) change direction toward the surface (the colder source) (see Arya 1983 Fig. 2.1).
 
 A closer look at the net radiation at the surface indicates that this term has its own building components. Below, a simplified version of this equation is given.
 
@@ -90,7 +90,7 @@ Where $R_N$ is the net radiation of the surface, $R_{s\downarrow}$ and $R_{L\dow
 
 Radiation balance in its simplest form considers the balance between the absorption and radiation of the ground at its surface as is stated by eq. \ref{eq:1}. Similar to energy budget of the surface, $R_N$ has a strong diurnal variation. 
 
-Generally, during daytime shortwave from the sun is dominant and in the afternoon the longwave radiation of the ground will be dominant with their peak wavelength at $6000$ $K$ and $287$ $K$ for short and long wave radiation respectively (Arya 1983 Fig. 3.1). During daytime the surface ground will warm up by absorbing the incoming shortwave radiation. At layers very close to the surface ($\sim 1 mm$) the generated heat by the ground will be transfered to the ambient air during what is called sensible heat transfer mechanism (i.e. conduction). Above that layer, the heat transfer process will be in a vertical advection manner (i.e. convection). This vertical advection in turn will generate turbulence and results in vertical mixing of the PBL. As the sunset approaches, the ground will start to cool off following eq. \ref{eq:budget} and \ref{eq:1} (i.e. through longwave radiation and heat transfer out of the surface). As a result of lack of vertical advection mechanism turbulence and vertical mixing will weaken and slow down throughout the PBL.
+Generally, during day-time shortwave from the sun is dominant and in the afternoon the longwave radiation of the ground will be dominant with their peak wavelength at $6000$ $K$ and $287$ $K$ for short and long wave radiation respectively (Arya 1983 Fig. 3.1). During daytime the surface ground will warm up by absorbing the incoming shortwave radiation. At layers very close to the surface ($\sim 1 mm$) the generated heat by the ground will be transfered to the ambient air during what is called sensible heat transfer mechanism (i.e. conduction). Above that layer, the heat transfer process will be in a vertical advection manner (i.e. convection). This vertical advection in turn will generate turbulence and results in vertical mixing of the PBL. As the sunset approaches, the ground will start to cool off following eq. \ref{eq:budget} and \ref{eq:1} (i.e. through longwave radiation and heat transfer out of the surface). As a result of lack of vertical advection mechanism turbulence and vertical mixing will weaken and slow down throughout the PBL.
 
 \subsubsection{Radiative Flux Divergence}
 
@@ -259,7 +259,7 @@ WRF uses a variety of physical mechanisms to simulate the atmosphere. Probably t
 
 The purpose of this chapter is to study the behavior and evolution of mixing ratio (q), potential temperature ($\Theta$), temperature (T), and wind in the PBL throughout a day at Breivikeidet. Also, the study was restricted to the lowest $\sim$ 900 $m$ of the atmosphere since no exciting/interesting behaviors were observed above this height.
 
-Some of the plots and some of the physical parameters show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see 4.4) as to whether this feature is a computational artifact or whether it is truly the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the parameters at this time of the day will not be discussed.
+In some plots some of the physical variables show a peculiar behavior at midnight time (00:00). A further analysis of the feature is presented at the end of this chapter (see 4.5) as to whether this feature is a computational artifact or whether it is truly the behavior of the PBL at this time of the day. However, to avoid the risk of miss-interpretation of the data, the behavior of the variables at this time of the day were plotted except Fig. \ref{march15} for the purpose of demonstration.
 
 \subsection{Where is Breivikeidet?}
 
@@ -293,7 +293,7 @@ Below is the evolution plot of the physical parameters at March 15 (Fig. \ref{ma
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/march15.png}
-\caption{The dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day (taken over all time intervals). In the far right-hand plot the solid bright green line shows the average of the net wind in the horizontal plane along with variations of wind components U and V. (Notice the distinctive behavior of the dashed-green line at potential temperature and temperature plots at 00:00.)}
+\caption{Graph of mixing ratio ($q$, far-left), potential temperature ($\Theta$, mid-left), temperature ($T$, mid-right), and wind components ($U$ and $V$, far-right). Dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day (taken over all time intervals). In the far right-hand plot the solid green line shows the average of the net wind (i.e. $\sqrt{U^2 + V^2}$) in the horizontal plane along with variations of wind components U and V. (Notice the distinctive behavior of the dashed-green line at potential temperature and temperature plots at 00:00.)}
 \label{march15}
 \end{figure}
 
@@ -305,13 +305,13 @@ Temperature does not show strong diurnal variation throughout the day (about 1 $
 
 %From the surface to 100 $\sim$ $m$ the temperature profile appears to be constant at different hours of the day. The possible explanation for this behavior could be that as the sun insolation heats the ground in the morning it starts heating up the surface. The generated heat from the surface causes vertical convection which in turn results in vertical mixing of the air layers in PBL up to $\sim$ 100 $m$. However, looking at fig.? it is clear that the surface temperature does not vary much (mostly constant) during the day. Also, the 2 $m$ temperature profile shows an almost constant decrease with time during the day. It suggests that there is not much convection going on above the ground. This makes it hard for the heat convection mechanism to be the possible reason behind the observed constant temperature in the PBL. Another possible explanation could be mechanically generated turbulent as a result of wind friction by the surface and the resulting wind shear through the PBL (see section ... for more details). Looking at Fig.?? (i.e. the wind plot) and the wind velocity at different hours of the day, it is possible that the mechanically generated turbulence are the reason behind the homogeneous temperature profile in the lower part of the PBL by mixing air layers at within this height. Nevertheless, wind generated turbulence is weaker than heat-convection generated turbulence and it may be the reason that we do not see the homogeneity in temperature profile at higher than $\sim$ 100 $m$ altitudes. However, it is also possible that a combination of heat convection and mechanical mixing (or a third unnoticed mechanism) is the possible reason behind the nearly constant temperature profile within lowest $\sim$ 100 $m$ of PBL.
 
-It might be of interest to see how the energy budget of the surface changes during this day. Fig. \ref{budget15} shows the energy budget profile of the surface skin at March 15.
+It is of interest to see how the energy budget of the surface changes during this day. Fig. \ref{budget15} shows the energy budget profile of near the surface at March 15.
 
 \vspace{0.35cm}
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget15.png}
-\caption{The energy budget of the surface at March 15. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the skies. The black solid line shows the net energy budget of the ground during this day.}
+\caption{Energy budget at surface during March 15. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net energy radiation at the surface during this day. The purple and green lines show the latent and sensible heat respectively.}
 \label{budget15}
 \end{figure}
 
@@ -319,13 +319,17 @@ It might be of interest to see how the energy budget of the surface changes duri
 
 There are several notable features in this plot. The bump in the middle of the day, greater-than-shortwave incoming longwave in the middle of the day, and several troughs in the incoming longwave radiation towards the end of the day.
 
-In a day with clear skies the incoming shortwave is by far stronger than the incoming longwave radiation (see ... for more details). However, in this plot the incoming longwave radiation is stronger. Presence of clouds could be a possible explanation for what we observe here. Possibly clouds have absorbed part of the incoming shortwave radiation and re-emitted in longwave radiation. Also, part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As previously stated, there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no clouds in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
+In a day with clear sky the incoming shortwave is by far stronger than the incoming longwave radiation (see 2.1.1). However, in this plot the incoming longwave radiation is stronger. Presence of clouds could be a possible explanation for what we observe here. Possibly clouds have absorbed part of the incoming shortwave radiation and re-emitted in longwave radiation. Also, part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As previously stated, there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no clouds in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
 
-On the outgoing radiation side, the outgoing shortwave radiation is a fraction of the incoming shortwave radiation\footnote{The WRF simulation does not output the outgoing shortwave radiation but it does output the albedo. The $S_{\uparrow} = (1 - a)\: S_{\downarrow}$ was used to find the outgoing shortwave radiation where $a$ is the albedo.} depending on the value of albedo of the surface at each hour. Both incoming and outgoing shortwave radiations drop to zero after sunset. At night the surface cooling starts. The surface tries to get rid of the energy that has absorbed during the day by radiating it away at infrared\footnote{Longwave radiation ($L_{\uparrow}$), also, is not provided by the WRF. The surface skin temperature was used to find the $L_{\uparrow}$ using Stefan-Boltzmann equation ($R = \sigma \: T^4$).}. 
+On the outgoing radiation side, the outgoing shortwave radiation is a fraction of the incoming shortwave radiation\footnote{The WRF simulation does not output the outgoing shortwave radiation but it does output the albedo. The $S_{\uparrow} = (1 - a)\: S_{\downarrow}$ was used to find the outgoing shortwave radiation where $a$ is the albedo.} depending on the value of albedo of the surface at each hour. Both incoming and outgoing shortwave radiations drop to zero after sunset. At night, surface cooling starts. The surface tries to get rid of the energy that has absorbed during the day by radiating it away at infrared\footnote{Longwave radiation ($L_{\uparrow}$), also, is not provided by the WRF. The surface skin temperature was used to find the $L_{\uparrow}$ using Stefan-Boltzmann equation ($R = \sigma \: T^4$).}. 
 
-Finally, the black line shows the net energy budget of the surface during March 15. As expected, in the middle of the day the energy budget of the surface raises towards positive values a sign that the surface is receiving more energy than it is emitting and the surface temperature rises. As the sunset approaches the energy budget of the surface moves towards negative values a meaning that the surface is loosing more energy than it receives a sign that the surface is cooling.
+Finally, the black line shows the net energy budget of the surface during March 15. As expected, in the middle of the day the energy budget of the surface raises towards positive values a sign that the surface is receiving more energy than it is emitting and the surface temperature rises. As the sunset approaches, the energy budget of the surface moves towards negative values meaning that the surface is loosing more energy than it receives a sign that the surface is cooling.
 
-To test whether change in energy budget of the surface effects the temperature of the surface a plot of surface skin temperature variation with time and water vapor (at 2m) is shown (Fig. \ref{skinvapor15}). 
+Looking at heat components at the surface, it appears that throughout the day latent heat is negative. A negative latent heat flux is the result of water evaporation/melting on the surface. Heat is transfered from the surface (hotter source) to the water (colder source) on the surface. And through this process surface looses energy. 
+
+Sensible heat is quite low and close to zero all day long except an slight increase toward the middle of the day. This is not unexpected since there is no strong solar irradiation on the surface and, consequently, increase in surface temperature will be insignificant (see Fig. \ref{skinvapor15}).
+
+To test whether change in energy budget of the surface effects the temperature of the surface a plot of this variable with time and water vapor (at 2m) is shown (Fig. \ref{skinvapor15}). 
 
 \vspace{1cm}
 
@@ -337,38 +341,56 @@ To test whether change in energy budget of the surface effects the temperature o
 
 \vspace{1cm}
 
-Unlike what the energy budget from Fig. \ref{budget15} suggests there is no increase in temperature in the middle of the day. It is possible that any increase in temperature is used for evaporation of water on the surface. However, since water vapor decreases towards the end of the day, one expects an increase in temperature, but such increase is not observed. As discussed before the two troughs may be the result of clouds thinning out (or clouds clearing the sky for several minutes) and the peak in the middle signals a cloudy period. Given the fact that there is one peak in the middle of the two troughs, it is unlikely that this pattern (at the end of the day) is the result of heat absorption by the water on the surface.
+Unlike what the energy budget from Fig. \ref{budget15} suggests there is no increase in temperature in the middle of the day. As discussed above, it is likely that any increase in temperature is used for evaporation/melting of water on the surface. However, since water vapor decreases toward the end of the day, water melting process seems to be more plausible. Also, from earlier discussion, the two troughs at the end of the day may be the result of clouds thinning out (or clouds clearing the sky for several hours) and the peak in between the two troughs signals another cloudy period. %And, given the fact that there is one peak in the middle of the two troughs, it is unlikely that this pattern (at the end of the day) is the result of heat absorption by water on the surface.
 
 % % %
 %A further analysis can be done by calculating the latent heat  of the water 
 %One can calculate the latent heat released in the atm. and the equivalent increase in the long wave regime and the effect of the on the ground but it is out of the scope of this work.
 % % %
 
-\subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
+\subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew Point}
 
-The initial analysis of the mixing ratio $q$ is similar to temperature. Mixing ratio decreases with time at all altitudes and the diurnal variation of the mixing ratio is quite low. This is not surprising since the diurnal variation of mixing ratio depends on the diurnal variation of temperature (see section 4.3.1 for more details on temperature variation). 
+The initial analysis of the mixing ratio $q$ is similar to temperature (Fig. \ref{march15}). Mixing ratio decreases with time at all altitudes and the diurnal variation of the mixing ratio is quite low. This is not surprising since diurnal variation of the mixing ratio depends on diurnal variation of the temperature (see section 4.3.1).
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/humidity15.png}
-\caption{Similar to Fig. \ref{march15} dashed line show the variation of physical parameters at different hours and solid black line shows the average value. Notice that the relative humidity is given in $\%$.}
+\caption{Graph of mixing ratio ($q$, far-left), relative humidity ($RH$, mid-left), temperature ($T$, mid-right), and dew point temperature ($T_{dp}$, far-right). Similar to Fig. \ref{march15} dashed lines show the behavior of each parameters at three-hour time intervals. The black solid line shows the average behavior of each parameter throughout the day (taken over all time intervals).}
 \label{humidity15}
 \end{figure}
 
-However, at 06:00 there is a shift in mixing ratio towards lower values around 700 $m$ height (Fig. \ref{march15}). Looking at temperature and potential temperature plots around the same height a sudden increase is noticeable. In order to investigate this feature more the procedure in 2.1.3 was followed to find relative humidity ($RH$) and dew point temperature ($T_{dp}$). Fig. \ref{humidity15} shows an evolution graph of mixing ratio, relative humidity, temperature and dew point. 
+The decreasing trend of mixing ratio with height can, also, be a sign of a stably stratified atmosphere (see 2.2 and 4.3.3) with colder air layers with lower mixing ratio stacked on top of one another.
 
-The strong and sudden divergence of $RH$ towards lower values is visible around $700$ $m$. Also, convergence of $RH$ at different heights, toward 100 $\%$ is another noticeable feature of RH plot. The convergence behavior of RH can be a sign of presence of lifting condensation level (LCL)\footnote{Lifting condensation level (LCL) is the height up to which an air parcel's temperature will decrease under adiabatic lapse rate and once it reaches this level the air parcel will have $RH$ of 100 $\%$.} at different heights and at different hours of the day. Considering the change in $RH$, potential temperature, temperature, and dew point at 06:00 it is possible that at this hour and around this height a cloud formation process (and possibly some precipitation) has occurred. The air in PBL at this hour has reached the LCL and moved above this level. Further lifting results in temperature decreases further and below the dew point. This results in water to go through a phase transition by releasing latent heat in the atmosphere. As result of this heat release the water vapor condenses into liquid water and forms clouds. As more air is lifted more clouds are produced and as clouds are lifted up further, liquid water may fall out of clouds. This will probably explain the strong decrease in humidity in Fig. \ref{humidity15} at 06:00. Another effect of the release of latent heat in the atmosphere is increase in ambient temperature at this height which explains the slight increase in the temperature seen in Fig. \ref{march15}. Also, once air reaches its saturation limit above the LCL it no longer follows the adiabatic lapse rate, but it follows the saturated adiabatic lapse rate. This is probably the reason we observe a slight divergence of potential temperature toward higher values. To test this scenario the data from the Tromsdalen observation station was checked. It appears that there has been a period of precipitation in the amounts of 0.2 $mm$ and 0.1 $mm$ at 06:00 and 07:00 respectively in the morning of the March 15.
+At 06:00 there is a shift in mixing ratio towards lower values around 700 $m$ height (Fig. \ref{march15}). Looking at temperature and potential temperature plots around the same height a sudden increase is noticeable. In order to investigate this feature more, the procedure in 2.1.3 was followed to find relative humidity ($RH$) and dew point temperature ($T_{dp}$). Fig. \ref{humidity15} shows the evolution graph of mixing ratio, relative humidity, temperature and dew point. 
+
+The strong and sudden divergence of $RH$ towards lower values is visible around $700$ $m$. Also, convergence of $RH$ at different heights, toward 100 $\%$ is another noticeable feature of RH plot. At 6:00, $RH$ is 100 $\%$ which can be a sign of cloud formation. However, for cloud formation the temperature has to reach the dew point (see 2.1.3 on connection between $RH$ and $T_dp$). To inspect this, a $T$-$T_{dp}$ was plotted at different heights and different time intervals (see Fig. \ref{tempvsdew15}).
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/tempvsdew15.png}
+\caption{Th order of graphs, colors and line types is similar to Fig. \ref{humidity15} except the plot on the far right shows the variation of $T\:$-$\:T_{dp}$ with height at different hours.}
+\label{tempvsdew15}
+\end{figure}
+
+The idea behind $T\:$-$\:T_{dp}$ plot is to see if any sign of precipitation or cloud formation process can be seen. From section 2.2 we know that in order for clouds to form two conditions must be present. First, relative humidity has to reach $100 \%$. Second, temperature has to drop to dew point temperature ($T\:$-$\:T_{dp} = 0$). By looking at RH and $T\:$-$\:T_{dp}$ plots (Fig. \ref{tempvsdew15}) it seems that at 6:00 cloud formation is happening (or at least the conditions are met for cloud formation) from the surface to the height where $T\:$-$\:T_{dp} > 0$. At this point $RH$ drops below 100 $\%$ and $T\:$-$\:T_{dp} > 0$. Both conditions are violated. A sign that cloud formation ceases at this point (and toward higher altitudes). Also, considering increase in temperature and decrease in mixing ratio, it is likely that at this height a layer of air with higher temperature and lower $RH$ and mixing ratio is present.
+
+At 03:00 conditions are (and remain) satisfied for cloud formation at all heights (over plotted by 06:00 dashed-line). At 09:00, 12:00, and 15:00 cloud formation conditions are satisfied at different heights ($\sim$ 200 $m$ for 09:00 and 12:00, and $\sim$ 500 $m$). For these hours, the conditions remain satisfied to the top of the atmosphere. Non of the conditions are met at 18:00. interestingly, cloud formation conditions are met at 21:00 at the same height where at 06:00 cloud formation terminated. However, at 21:00 and around $\sim$ 800 $m$ the cloud formation conditions are violated again.
+
+Given the fact that cloud formation conditions are met both before and after 06:00 at all heights, it is hard to comment on the nature of the air layer at 06:00 layer.
+
+So far we have investigated the probability of cloud formation. The above results can be analyzed further to check for precipitation. Conditions for precipitation are the same as cloud formation with the exception that $T\:$-$\:T_{dp} < 0$ for relative humidity of 100 $\%$. As it can be seen in Fig. \ref{tempvsdew15} $T\:$-$\:T_{dp}$ no where in the atmosphere drops below zero. This suggests that despite hours of cloud formation no precipitation happened during this day. Looking at precipitation data provided by Tromsdalen weather station\footnote{https://goo.gl/rmGC6E}, there has been several intervals of precipitation in the amount of 0.2, 0.1, and 0.1 $mm$ at 06:00, 07:00, and 22:00 during this day.
+
+%...---... The convergence behavior of RH can be a sign of presence of lifting condensation level (LCL)\footnote{Lifting condensation level (LCL) is the height up to which an air parcel's temperature will decrease under adiabatic lapse rate and once it reaches this level the air parcel will have $RH$ of 100 $\%$.} at different heights and at different hours of the day. Considering the change in $RH$, potential temperature, temperature, and dew point at 06:00 it is possible that at this hour and around this height a cloud formation process (and possibly some precipitation) has occurred. The air in PBL at this hour has reached the LCL and moved above this level. Further lifting results in temperature decreases further and below the dew point. This results in water to go through a phase transition by releasing latent heat in the atmosphere. As result of this heat release the water vapor condenses into liquid water and forms clouds. As more air is lifted more clouds are produced and as clouds are lifted up further, liquid water may fall out of clouds. This will probably explain the strong decrease in humidity in Fig. \ref{humidity15} at 06:00. Another effect of the release of latent heat in the atmosphere is increase in ambient temperature at this height which explains the slight increase in the temperature seen in Fig. \ref{march15}. Also, once air reaches its saturation limit above the LCL it no longer follows the adiabatic lapse rate, but it follows the saturated adiabatic lapse rate. This is probably the reason we observe a slight divergence of potential temperature toward higher values. To test this scenario the data from the Tromsdalen observation station was checked. It appears that there has been a period of precipitation in the amounts of 0.2 $mm$ and 0.1 $mm$ at 06:00 and 07:00 respectively in the morning of the March 15.
  
 \subsubsection{Potential Temperature}
 
-All in all, potential temperature during March 15 seems to be stable throughout the atmosphere up to $\sim$ 800 $m$ (see Fig. \ref{march15}). Any adiabatic lifting or sinking of an air parcel will be suppressed by the atmosphere (see eq. 2.9). Despite possible wind-induced and heat-induced turbulence during the day (specially mid day), these turbulences are not strong enough to mix the PBL at any height.
+All in all, potential temperature-height gradient shows a positive sign ($d\Theta/dz > 0$) up to $\sim$ 800 $m$ (see Fig. \ref{march15}). This can signal the presence of a stable atmosphere at all heights during March 15. Any adiabatic lifting or sinking of an air parcel will be suppressed by the atmosphere (see eq. 2.9). Despite possible wind-induced and heat-induced turbulence during this day (specially mid day), these turbulences are not strong enough to mix the PBL at any height.
 
 \subsubsection{Wind}
 
-Wind velocity profile is shown in Fig. \ref{march15}. A noticeable feature in wind profile is the wind shear at heights close to the surface. In order to have a better understanding of the wind profile, wind components and were plot separately along with Richardson number (Ri) and potential temperature (see Fig. \ref{richard15}).
+Wind velocity profile is shown in Fig. \ref{march15}. A noticeable feature in wind profile is the wind shear at heights close to the surface. In order to have a better understanding of the wind profile, wind components were plotted separately along with Richardson number (Ri) and potential temperature (see Fig. \ref{richard15}).
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/richard15.png}
-\caption{The colors and lines representation is similar to Fig. \ref{march15} with the difference that the 00:00 variation has been removed. Notice that the 00:00 lines were removed due to their effect on physical parameters (specially Ri).}
+\caption{Graph of potential temperature ($\Theta$, far-left), U component of the wind ($U$, mid-left), V component of the wind ($V$, mid-right), and Richardson number ($R_i$, far-right). Colors and line types follow the same order as in Fig. \ref{march15}.}
 \label{richard15}
 \end{figure}
 
@@ -377,25 +399,6 @@ Richardson number can give information on the turbulence state of the atmosphere
 On the other hand, as we move towards higher altitudes the Ri number increases well beyond 0.25 limit. This results in intermittent and decaying turbulence at high altitudes. However, at heights above $\sim$ 700 $m$ the Ri number unusually increases at several hours (e.g.12:00). Given the fact that at about the same heights other time intervals (e.g. 15:00) have Ri numbers with reasonable values, it is unlikely that the Ri values in this plot are unreliable. This feature needs further inspection. 
 
 %The other feature of the wind profile is the increase of wind velocity at higher altitudes. Friction force and air density are the possible explanation for this behavior. Closer to surface wind faces a strong friction force as it interacts with the surface and the object on the surface. However, at higher altitudes, where there is no obstacle to face, the wind velocity increases. Also, at higher altitudes density of air decreases (as result of decrease in pressure). And lower density makes it easier for the air to move around.
-
-\subsection{Computational Artifact or Natural Behavior?}
-
-As it was mentioned in the beginning of this chapter, in some of the figures (e.g. Fig.) at the time 00:00 most of the parameters show a peculiar behavior that is not seen at other times of the day. Thus, it was decided to exclude this time interval from the discussion part. However, it is of special interest as to correctly recognize whether this behavior is a computational artifact or the natural behavior of those physical parameters. 
-
-Figure \ref{artifact} shows similar parameters as Fig. \ref{march15} with one major difference. Fig. \ref{artifact} shows the evolution of these parameters at ten-minute intervals. The ten-minute interval is the lowest time resolution of this work. The aim is to test whether this behavior happens at 00:00 and then gradually converges towards later values or it happens at 00:00 and then suddenly jumps to later values. The former behavior is a sign that this is the natural behavior of the physical parameters. However, if the latter happens it is highly probable that this behavior is a computational artifact. Considering the behavior of parameters in Fig. \ref{artifact}, it appears that there is a gradual convergence from 00:00 to later values in potential temperature, temperature, and the V component of the wind. However, before we jump to conclusion, a closer look at mixing ratio and U component of the wind suggests other wise. A sudden jump in mixing ratio and U component of the wind graphs is more obvious.
-
-Also, it is worth mentioning that the jump behavor at three-hour intervals is not very noticeable at all days (weak jumps at 14 and 20 but very strong jumps at 21 and 22 of March). Also, it appears that potential temperature and, accordingly, temperature are the parameters that suffer the most from this jump behavior.
-
-Considering the observed behavior, it is better not to come to any conclusions on the nature of this behavior until further studies are done. A possible reason for this behavior could be the choice of PBL scheme in the WRF model. However, investigating this possibility is beyond the scope of this work.
-
-%It is of crucial importance to know what causes this behavior, but it is beyond the scope of this study. However, domain decoupling could be a possible candidate for further investigation.
-
-\begin{figure}[bhp]
-\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/artifact.png}
-\caption{Unlike Fig. \ref{march15} the time intervals in this plot are ten-minute intervals. Also, the average value of each parameter is not shown.}
-\label{artifact}
-\end{figure}
-
 
 \subsection{The Coldest Day (March 23, 2016)}
 
@@ -411,13 +414,16 @@ Below is the evolution plot of the physical parameters at March 23 (Fig. \ref{ma
 
 \vspace{0.5cm}
 
-Similar to day \ordinalnum{15} the energy budget of the day 23 was investigated. Fig. \ref{budget23} shows the energy budget of this day. Interestingly, during this day there is an interval of strong incoming shortwave that clearly dominates the incoming radiation. This can be a sign that at this time the sky has been clear. As a result of this strong incoming shortwave radiation the energy budget of the earth progressively increases. This increase continues until the sunset approaches where the intensity of shortwave decreases and the incoming longwave radiation dominates. Also, as a result of increase in the energy budget of the earth it is likely that this has had more heat-induced turbulence and vertical mixing close to the surface specially in the middle of the day. 
+Similar to day \ordinalnum{15} the energy budget of the day 23 was investigated (Fig. \ref{budget23}). Interestingly, during this day there is an interval of strong incoming shortwave that is, clearly, the dominant component of the incoming radiation. This can be a sign that at this time the sky has been clear. As a result of this strong incoming shortwave radiation the energy budget of the earth progressively increases. This increase continues until the sunset approaches where the intensity of shortwave decreases and the incoming longwave radiation dominates. 
+
+Sensible heat has a positive value during most of the day especially at mid-day. This can be regarded as a possible source of heat-generated turbulence and vertical mixing close to the surface. It appears that latent heat has negative values throughout the day. However, it is not as low as what we observed during day March 15. As the mid-day time becomes closer the evaporation increases. The increase in evaporation pulls even more energy out of the surface. This results in decrease in surface skin temperature 
+%Also, as a result of increase in the energy budget of the earth it is likely that this has had more heat-induced turbulence and vertical mixing close to the surface specially in the middle of the day. 
 
 \vspace{0.35cm}
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget23.png}
-\caption{The energy budget of the surface at March 23. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net energy budget of the ground during this day.}
+\caption{The energy budget of the surface at March 23. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net radiative balance at the ground. The purple and green lines are the latent and sensible heat fluxes at the surface respectively.}
 \label{budget23}
 \end{figure}
 
@@ -425,7 +431,15 @@ Similar to day \ordinalnum{15} the energy budget of the day 23 was investigated.
 
 \subsubsection{Potential Temperature}
 
-Unlike March 15 the potential temperature during March 23 is not very stable at low altitudes. At early morning (03:00) PBL is stable but as the sunrise approached the potential temperature becomes less stable. At 12:00 an slight shift in potential temperature towards lower temperatures is observable. This shift shows an instability in PBL up to the height of $\sim$ 100 $m$. However, around afternoon and close to the sunset hour (18:00) the PBL becomes stable again. The energy budget plot (Fig. \ref{budget23}) can explain this behavior precisely. At earl hours of the day there is no solar insolation and the PBL is quite stable. However, through the day the solar irradiation warms up the surface until mid-day time where it reaches its maximum. At this time the surface temperature has reached its maximum and heat convection generated by the surface causes all types of vertical mixing mechanisms above the surface. As a result of this vertical mixing  the lower part of PBL becomes unstable. This process continues unitl the sunset time where the PBL becomes stable again.
+Unlike March 15 the potential temperature during March 23 is not very stable at low altitudes. At early morning (03:00) PBL is stable, but as the sunrise approaches the potential temperature becomes less stable. At 12:00 an slight shift in potential temperature towards lower temperatures is observable. This shift shows an instability in PBL up to the height of $\sim$ 100 $m$. However, around afternoon and close to the sunset hour (18:00) the PBL becomes stable again. The energy budget plot (Fig. \ref{budget23}) can explain this behavior precisely. At early hours of the day there is no solar irradiation and the PBL is quite stable. However, through the day the solar irradiation warms up the surface until mid-day time where it reaches its maximum. At this time the surface temperature has reached its maximum and heat-convection generated by the surface causes all types of vertical mixing mechanisms above the surface. As a result of this vertical mixing the lower part of PBL becomes unstable. This process continues unitl the sunset time where the PBL becomes stable again. To examine the instability of the PBL at lower altitudes the all physical variables are plotted at the lowest 100 $m$ of the atmosphere (Fig. \ref{100m23}).
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/100m23.png}
+\caption{The behavior of mixing ratio, potential temperature, temperature, and wind components in the lowest 100 m of the atmosphere. Similar to Fig. \ref{march15} dashed and solid lines show the three-hourly and average behavior of the physical parameters. The solid green line shows the average of the net wind in the horizontal plane.}
+\label{100m23}
+\end{figure}
+
+As discussed above at early hours of the day PBL is quite stable, but at mid-day time it becomes unstable. Looking at potential temperature plot. although not strong, an increase with height is still observable at 12:00 and 15:00 (compare the bottom and top tick marks at 270.5 $K$). The possible reason for lack of strong instability could be the low amount of sensible heat and existence of possible snow/water on the surface (see 4.3.1).
 
 \subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
 
@@ -440,20 +454,45 @@ Looking at mixing ratio and RH (Fig. \ref{humidity23}) we can see a trend. In th
 
 \subsubsection{Wind}
 
+To investigate wind components and their impact on the PBL of the day March 23 Richardson number was found. Fig. \ref{richard23} shows potential temperature and wind components and $Ri$. 
 
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/richard23.png}
+\caption{Graph of potential temperature ($\Theta$, far-left), U component of the wind ($U$, mid-left), V component of the wind ($V$, mid-right), and Richardson number ($R_i$, far right). Colors and line types follow the same order as in Fig. \ref{march15}.}
+\label{richard23}
+\end{figure}
 
+Variation of both U and V components of the wind decreases with height which in turn results in low variation in the net wind. As a result of low variation in net wind the $R_i$ number becomes increasingly large at higher altitudes. It is of importance to highlight the small values of the $Ri$ number close to the ground. Small values of the $R_i$ indicate the existence of turbulence at heights close to surface. This can, also, be seen in the potential temperature plot at heights close to the surface (see Fig. ). Another noteworthy feature of the $R_i$ plot is the absence of $R_i$ values at 06:00, 09:00 and 12:00 at low to mid-altitudes respectively. Further inspection showed that due to existence of unstable atmosphere at these heights and hours the $d\Theta/dz$ drops below zero (a sign of unstable atmosphere) which results in a negative $R_i$. The negative value of $R_i$ is another confirmation of existence of unstable atmosphere during this day. In addition, as discussed in 2.3, the Richardson number is a stability indicator better suited for a stably stratified atmosphere.
 
+\subsection{Computational Artifact or Natural Behavior?}
 
+As it was mentioned in the beginning of this chapter, in some figures (e.g. Fig. \ref{march15}) at the time 00:00 most of the parameters show a peculiar behavior that is not seen at other times of the day. Thus, it was decided to exclude this time interval from the discussion part. However, it is of special interest as to correctly recognize whether this behavior is a computational artifact or the natural behavior of those physical parameters. 
 
+After further investigation it was found that the observed pattern is the result of a well known problem called ``spin up problem". Since for every single day of this study (March 10 to March 15) the simulation the WRF model was run separately from the mid-night time (00:00) of each day, it takes some time for the physical variables in the WRF model to reach their true values. The correction procedure of this problem is out of the scope of this work, but Fig. \ref{artifact} shows how the seemingly computational artifact at 00:00 converges smoothly toward the later values. It has to be noted that the time intervals in this plot are ten-minute intervals.
 
+%similar parameters as Fig. \ref{march15} with one major difference. Fig. \ref{artifact} shows the evolution of these parameters at ten-minute intervals. The ten-minute interval is the lowest time resolution of this work. The aim is to test whether this behavior happens at 00:00 and then gradually converges towards later values or it happens at 00:00 and then suddenly jumps to later values. The former behavior is a sign that this is the natural behavior of the physical parameters. However, if the latter happens it is highly probable that this behavior is a computational artifact. Considering the behavior of parameters in Fig. \ref{artifact}, it appears that there is a gradual convergence from 00:00 to later values in potential temperature, temperature, and the V component of the wind. However, before we jump to conclusion, a closer look at mixing ratio and U component of the wind suggests other wise. A sudden jump in mixing ratio and U component of the wind graphs is more obvious.
+
+%Also, it is worth mentioning that the jump behavor at three-hour intervals is not very noticeable at all days (weak jumps at 14 and 20 but very strong jumps at 21 and 22 of March). Also, it appears that potential temperature and, accordingly, temperature are the parameters that suffer the most from this jump behavior.
+
+%Considering the observed behavior, it is better not to come to any conclusions on the nature of this behavior until further studies are done. A possible reason for this behavior could be the choice of PBL scheme in the WRF model. However, investigating this possibility is beyond the scope of this work.
+
+%It is of crucial importance to know what causes this behavior, but it is beyond the scope of this study. However, domain decoupling could be a possible candidate for further investigation.
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/artifact.png}
+\caption{Unlike Fig. \ref{march15} the time intervals in this plot are ten-minute intervals. Also, the average value of each parameter is not shown.}
+\label{artifact}
+\end{figure}
 
 \newpage
 
 \section {Conclusion}
 
-In this study time/height behavior and evolution of several physical parameters within the PBL of the Breivikeidet valley at two different days were investigated. The analysis of March 15 suggests that this day must have been a cloudy day with some precipitation. The surface energy budget of this day also confirms this. As a result of low solar irradiation during this day there is no/low heat-induced turbulence from the surface which in turn results in a stable PBL throughout the atmosphere. Also, this day is particularly windy and there is fair amount of turbulence close to the surface regarding the Ri number.
+First, in this study time/height behavior and evolution of several physical variables within the PBL of the Breivikeidet valley at two different days were investigated. The analysis of March 15 suggests that this day must have gone through several periods of cloud formation. Variation in surface energy budget, humidity, temperature and dew point temperature of this day also confirms this. As a result of low solar irradiation during this day (due to cloud covers), there is no/low heat-induced turbulence from the surface which in turn results in a stable PBL throughout the atmosphere. Also, this day is particularly windy and there is fair amounts of turbulence close to the surface regarding the Ri number during this day.
 
-Analysis of the surface energy budget of the day March 23, however, shows periods of strong solar irradiation. Progressive increase and decrease of water vapor and RH towards the middle and end of the day, respectively, confirms this. In addition, potential temperature shows signs of weak instability at heights close to the surface. This is not unexpected since solar irradiation warms up the surface and, consequently, heat-generated turbulences are formed. And the resulting turbulent creates a destabilized PBL and weakens the wind flow in this region of the PBL.  
+Next, analysis of the surface energy budget of the day March 23, however, shows periods of strong solar irradiation. Progressive increase and decrease of water vapor and RH towards the middle and end of the day, respectively, confirms this. In addition, potential temperature shows signs of weak instability at heights close to the surface. This is not unexpected since solar irradiation warms up the surface and, consequently, heat-generated turbulence is formed. The resulting turbulent environment destabilizes PBL and weakens the wind flow in this region of the PBL. This finding was also confirmed by the negative values of the $R_i$.
+
+Finally, the writer of this study realized that seemingly simple methods such as energy budget near the surface can be truly sophisticated and powerful tools if applied properly. 
 
 \newpage
 
