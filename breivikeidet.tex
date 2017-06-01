@@ -1,7 +1,8 @@
 \documentclass[a4paper,12pt]{article}
 \author{Nozhan Balafkan}
-\date{}
+\date{June 1, 2017}
 \title{A Model Study of the Planetary Boundary Layer at Breivikeidet Valley}
+\usepackage{natbib}	%	Package for citation.
 \renewcommand{\baselinestretch}{1.2}
 \DeclareMathSizes{10}{10}{10}{12} % {display size}{text size}{script size}{scriptscript size}.
 % the above line is where you can declare mathe size in your text (whether you want it to be the same size of your font or bigger or smaller).
@@ -48,13 +49,13 @@
 
 Planetary boundary layer (PBL) is home to a variety of different physics mechanisms and it is one of the most exciting and challenging parts of the atmosphere to study. The diversity of the weather patterns we observe every day is, to a great extent, the direct result of the complexity of PBL. Therefore, a better understanding of PBL is of crucial importance in weather prediction studies. 
 
-Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere interact and exchange physical variables (e.g. water vapor and momentum) up to the height where these interactions are carried and felt by the free atmosphere [ref].
+Generally, PBL is defined as the part of the atmosphere where the Earth's surface and atmosphere interact and exchange physical variables (e.g. water vapor and momentum) up to the height where these interactions are carried and felt by the free atmosphere.
 
 %[[Pleim2007b]]
 
-The aim of this work is to study the PBL of the Breivikeidet valley and to investigate the behavior and evolution of different physical parameters (i.e. temperature, potential temperature, water vapor and wind velocity) with height over the course of 16 days (i.e. from March 10, 2016 to March 25, 2016). The investigated days were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL during such a weather transition. To reach our purpose, this work has made extensive use of the Weather Research and Forecasting (WRF) Model [ref]. Also, it has to be stated that in this work the words ``atmosphere" and ``PBL" are used interchangeably unless it is stated otherwise. Both words refer to the lowest 900 $m$ of the atmosphere.
+The aim of this work is to study the PBL of the Breivikeidet valley and to investigate the behavior and evolution of different physical parameters (i.e. temperature, potential temperature, water vapor and wind velocity) with height over the course of 16 days (i.e. from March 10, 2016 to March 25, 2016). The investigated days were chosen in a way that a transition from warm weather to cold weather can be captured in order to study the behavior of the PBL during such a weather transition. To reach our purpose, this work has made extensive use of the Weather Research and Forecasting (WRF) Model \citep{wrf3}. Also, it has to be stated that in this work the words ``atmosphere" and ``PBL" are used interchangeably unless it is stated otherwise. Both words refer to the lowest 900 $m$ of the atmosphere.
 
-The order of this work is as follows: in chapter 2, a short theoretical background is presented. Chapter 3 focuses on the WRF set ups. Chapter 4 presents the results and discussion of the results. Finally, Chapter 5 gives a short conclusion of the results.
+The order of this work is as follows: in chapter 2, a short theoretical background is presented. Chapter 3 focuses on the WRF set ups. Chapter 4 presents the results and discussion of the results. Finally, a short conclusion appears in chapter 5.
 
 \newpage
 
@@ -116,7 +117,7 @@ Where $\Big(\frac{\partial T}{\partial t}\Big)_R$ is the rate of cooling/warming
 Water vapor in atmosphere under certain conditions can turn into clouds. To examine the existence of clouds in the atmosphere water vapor alone can not provide us with enough information. Relative humidity ($RH$) and dew point temperature ($T_{dp}$) are, probably, the best indicators of cloud formation in the atmosphere. However, before we precede to deriving the required equations, the following terms need to be defined; mixing ratio ($q$), saturation mixing ratio ($q_s$), and dew point temperature. Mixing ratio is defined as mass of the water vapor to the mass of dry air in a given volume of air. Saturation mixing ratio is defined as mass of the water vapor in a given volume of air that is saturated with water vapor to the mass of dry air. In fact if, for a given air parcel, one subtracts the mixing ratio from the saturation mixing ratio of the parcel what is left would be the amount of water vapor that the parcel requires to reach its saturation level. Finally, dew point is the temperature at which water vapor goes through a phase transition (from gas to liquid) by releasing energy in the form of latent heat and condensing to liquid water.
 
 In the atmosphere, as an air parcel rises toward higher altitudes the temperature of the air parcel decreases and, accordingly, the water vapor content of the parcel approaches its dew point (its phase transition temperature). %It is defined as the limit where the water evaporation rate is equal to the water condensation rate. 
-At dew point temperature, the water vapor pressure of the parcel can be estimated using Buck equation (eq. \ref{eq:3} [paper ref]). 
+At dew point temperature, the water vapor pressure of the parcel can be estimated using the following equation \citep{arden}. 
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:3}
@@ -141,7 +142,7 @@ RH=\frac{q}{q_s}
 \end{equation}
 \vspace{0.25cm}
 
-Where $q$ and $q_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation [ref].
+Where $q$ and $q_s$ are mixing ratio and saturated mixing ratio respectively. Finally, the dew point temperature can be found using Arden Buck equation \citep{arden}.
 
 \vspace{0.25cm}
 \begin{equation}\label{eq:6}
@@ -216,7 +217,7 @@ Where $R_i$ is the Richardson number, $\frac{\partial T}{\partial Z}$ is tempera
 \section{Weather Research and Forecast (WRF) model}
 
 Weather Research and Forecast (WRF)\footnote{http://www.wrf-model.org} is a numerical weather model that is mainly used for weather research and forecast purposes.
-For the purpose of this work WRF model version 3.8 (the latest version at the time of writing this report) was used. Below, only the most important parameters of the WRF model that were used in this work are shortly explained, but the reader is encouraged to see [ref] and [ref] for a detailed discussion of the choice of different parameters used in WRF model. Also, appendix ? shows the choice of different parameters that were used in this work in the form of a namelist file. 
+For the purpose of this work WRF model version 3.8 (the latest version at the time of writing this report) was used. Below, only the most important parameters of the WRF model that were used in this work are shortly explained, but the reader is encouraged to see \citep{Torgeir} and \citep{wrf3} for a detailed discussion of the choice of different parameters used in WRF model. Also, appendix A shows the choice of different parameters that were used in this work in the form of a namelist file. 
 
 %[ref]:tor
 %[wrf user]
@@ -230,7 +231,9 @@ Most of the WRF setups are done by the namelist.input file. This file controls t
 
 \subsubsection{Time Step}
 
-WRF model is based on a 3rd order Runge-Kutta integration [ref]. Therefore, time step is one of the core parameters of this model and special attention has to be paid to selecting the right time step. A small time step can be computationally very expensive and a big time step can cause an early divergence which in turn causes disruption of the process. In order to find the appropriate value for the time step the Courant-Fredrichs-Lewy (CFL) condition and maximum Courant number were used [ref][ref]. The following equation was used to find the appropriate time step according to CFL and Courant number.
+WRF model is based on a 3rd order Runge-Kutta integration. Therefore, time step is one of the core parameters of this model and special attention has to be paid to selecting the right time step. A small time step can be computationally very expensive and a big time step can cause an early divergence which in turn causes disruption of the process. In order to find the appropriate value for the time step the Courant-Fredrichs-Lewy (CFL) condition and maximum Courant number were used \citep{sham,courant}. The following equation was used to find the appropriate time step according to CFL and Courant number.
+
+%http://esrl.noaa.gov/gsd/wrfportal/namelist_input_options.html.
 
 \vspace{0.25cm}
 \begin{equation}
@@ -251,7 +254,7 @@ Also, at each grid point, fifty cells are stacked on top of one another to calcu
 
 \subsubsection{Physics}
 
-WRF uses a variety of physical mechanisms to simulate the atmosphere. Probably the PBL scheme is the most important set of physical mechanisms used in this work. Although very important but PBL scheme is one of the most uncertain schemes used in WRF model [ref]. This uncertainty has its origin in the complexity of the PBL's physics and the fact that it has not been studied in details. So there, probably, are some physical mechanisms that are not included in our schemes.  Generally, in WRF model, the PBL schemes fall into one of the two groups of first order closure and turbulent kinetic energy (TKE) closure schemes. There are several TKE schemes available in WRF such as Bougeaukt-Lacarrére (BouLac), Mellor-Yamada-Janic (MYJ) and the Quasi-normal scale elimination (QNSE) [ref]. The MYJ PBL scheme was used for the purpose of this work.
+WRF uses a variety of physical mechanisms to simulate the atmosphere. Probably the PBL scheme is the most important set of physical mechanisms used in this work. Although very important but PBL scheme is one of the most uncertain schemes used in WRF model \citep{balzar}. This uncertainty has its origin in the complexity of the PBL's physics and the fact that it has not been studied in details. So there, probably, are some physical mechanisms that are not included in our schemes. Generally, in WRF model, the PBL schemes fall into one of the two groups of first order closure and turbulent kinetic energy (TKE) closure schemes. There are several TKE schemes available in WRF such as Bougeaukt-Lacarrére (BouLac), Mellor-Yamada-Janic (MYJ) and the Quasi-normal scale elimination (QNSE) \citep{philip}. The MYJ PBL scheme was used for the purpose of this work.
 
 \newpage
 
@@ -272,7 +275,8 @@ The Breivikeidet is located at $19.43^\circ N$ and $69.63^\circ E$. It is locate
 \end{figure}
 
 \subsection{Choice of Days}
-In order to keep this report short only two days of the sixteen days were studied, but a complete list of figures of all days can be found in appendix ?. The two days are March 15, and 23. Fig. \ref{warmcold}, shows a plot of the maximum, minimum and the average temperature profile of all days.
+In order to keep this report short only two days of the sixteen days were studied. These two days are March 15, and 23. Fig. \ref{warmcold}, shows a plot of the maximum, minimum and the average temperature profile of all sixteen days.
+%but a complete list of figures of all days can be found in appendix ?. The two 
 
 \vspace{2.5 cm}
 
@@ -307,41 +311,35 @@ Temperature does not show strong diurnal variation throughout the day (about 1 $
 
 It is of interest to see how the energy budget of the surface changes during this day. Fig. \ref{budget15} shows the energy budget profile of near the surface at March 15.
 
-\vspace{0.35cm}
-
-\begin{figure}[bhp]
-\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget15.png}
-\caption{Energy budget at surface during March 15. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net energy radiation at the surface during this day. The purple and green lines show the latent and sensible heat respectively.}
-\label{budget15}
-\end{figure}
-
-\vspace{1cm}
-
 There are several notable features in this plot. The bump in the middle of the day, greater-than-shortwave incoming longwave in the middle of the day, and several troughs in the incoming longwave radiation towards the end of the day.
 
 In a day with clear sky the incoming shortwave is by far stronger than the incoming longwave radiation (see 2.1.1). However, in this plot the incoming longwave radiation is stronger. Presence of clouds could be a possible explanation for what we observe here. Possibly clouds have absorbed part of the incoming shortwave radiation and re-emitted in longwave radiation. Also, part of the incoming shortwave has been reflected by the clouds. These two factors cause the strong incoming longwave and the weaker shortwave radiation. As previously stated, there are several periods at which the incoming longwave radiation undergoes a sudden decrease along with a slight increase in the incoming shortwave radiation (e.g. 08:00, 16:00) with the longwave radiation still the dominant incoming radiation. It is possible that at these hours the sky has cleared (or at least clouds have thinned out) for several minuets. With less/no clouds in the way there will be less absorption (and re-emission in infrared) and less reflection of the shortwave radiation. As a result, an increase and decrease in the incoming short and longwave radiation occurs respectively. Also, it has to be noted that since the shortwave radiation is not the dominant radiation at these time intervals, it may well be that the sunlight does not hit the surface directly (supporting the cloud thinning scenario).
+
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget15.png}
+\caption{Energy budget at the surface during March 15. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net energy radiation at the surface during this day. The purple and green lines show the latent and sensible heat respectively.}
+\label{budget15}
+\end{figure}
 
 On the outgoing radiation side, the outgoing shortwave radiation is a fraction of the incoming shortwave radiation\footnote{The WRF simulation does not output the outgoing shortwave radiation but it does output the albedo. The $S_{\uparrow} = (1 - a)\: S_{\downarrow}$ was used to find the outgoing shortwave radiation where $a$ is the albedo.} depending on the value of albedo of the surface at each hour. Both incoming and outgoing shortwave radiations drop to zero after sunset. At night, surface cooling starts. The surface tries to get rid of the energy that has absorbed during the day by radiating it away at infrared\footnote{Longwave radiation ($L_{\uparrow}$), also, is not provided by the WRF. The surface skin temperature was used to find the $L_{\uparrow}$ using Stefan-Boltzmann equation ($R = \sigma \: T^4$).}. 
 
 Finally, the black line shows the net energy budget of the surface during March 15. As expected, in the middle of the day the energy budget of the surface raises towards positive values a sign that the surface is receiving more energy than it is emitting and the surface temperature rises. As the sunset approaches, the energy budget of the surface moves towards negative values meaning that the surface is loosing more energy than it receives a sign that the surface is cooling.
 
-Looking at heat components at the surface, it appears that throughout the day latent heat is negative. A negative latent heat flux is the result of water evaporation/melting on the surface. Heat is transfered from the surface (hotter source) to the water (colder source) on the surface. And through this process surface looses energy. 
+\begin{figure}[bhp]
+\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/skinvapor15.png}
+\caption{The correlation between surface skin temperature and water vapor at $2m$ above the surface. The blue and red lines show the water vapor at 2m and surface skin temperature respectively during March 15.}
+\label{skinvapor15}
+\end{figure}
+
+Looking at heat components at the surface, it appears that throughout the day latent heat is negative. A negative latent heat flux is the result of water evaporation/melting on the surface. In the mid-day when the net radiative energy increases the excessive energy of the surface is consumed for melting/evaporating the water on the surface. And the resulting latent heat increases (this phenomena is more pronounced during day March 23. See 4.4.1).
 
 Sensible heat is quite low and close to zero all day long except an slight increase toward the middle of the day. This is not unexpected since there is no strong solar irradiation on the surface and, consequently, increase in surface temperature will be insignificant (see Fig. \ref{skinvapor15}).
 
 To test whether change in energy budget of the surface effects the temperature of the surface a plot of this variable with time and water vapor (at 2m) is shown (Fig. \ref{skinvapor15}). 
 
-\vspace{1cm}
+Unlike what the energy budget from Fig. \ref{budget15} suggests there is no increase in temperature in the middle of the day. As discussed above, it is likely that any increase in temperature is used for evaporation/melting of water on the surface. However, since water vapor decreases toward the end of the day, water melting process seems to be more plausible. Also, from earlier discussion, the two troughs at the end of the day may be the result of clouds thinning out (or clouds clearing the sky for several hours) and the peak in between the two troughs signals another cloudy period.
 
-\begin{figure}[bhp]
-\includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/skinvapor15.png}
-\caption{The blue and red lines show the water vapor at 2m and surface skin temperature respectively during March 15.}
-\label{skinvapor15}
-\end{figure}
-
-\vspace{1cm}
-
-Unlike what the energy budget from Fig. \ref{budget15} suggests there is no increase in temperature in the middle of the day. As discussed above, it is likely that any increase in temperature is used for evaporation/melting of water on the surface. However, since water vapor decreases toward the end of the day, water melting process seems to be more plausible. Also, from earlier discussion, the two troughs at the end of the day may be the result of clouds thinning out (or clouds clearing the sky for several hours) and the peak in between the two troughs signals another cloudy period. %And, given the fact that there is one peak in the middle of the two troughs, it is unlikely that this pattern (at the end of the day) is the result of heat absorption by water on the surface.
+ %And, given the fact that there is one peak in the middle of the two troughs, it is unlikely that this pattern (at the end of the day) is the result of heat absorption by water on the surface.
 
 % % %
 %A further analysis can be done by calculating the latent heat  of the water 
@@ -376,7 +374,7 @@ At 03:00 conditions are (and remain) satisfied for cloud formation at all height
 
 Given the fact that cloud formation conditions are met both before and after 06:00 at all heights, it is hard to comment on the nature of the air layer at 06:00 layer.
 
-So far we have investigated the probability of cloud formation. The above results can be analyzed further to check for precipitation. Conditions for precipitation are the same as cloud formation with the exception that $T\:$-$\:T_{dp} < 0$ for relative humidity of 100 $\%$. As it can be seen in Fig. \ref{tempvsdew15} $T\:$-$\:T_{dp}$ no where in the atmosphere drops below zero. This suggests that despite hours of cloud formation no precipitation happened during this day. Looking at precipitation data provided by Tromsdalen weather station\footnote{https://goo.gl/rmGC6E}, there has been several intervals of precipitation in the amount of 0.2, 0.1, and 0.1 $mm$ at 06:00, 07:00, and 22:00 during this day.
+So far we have investigated the probability of cloud formation. The above results can be analyzed further to check for precipitation. Conditions for precipitation are the same as cloud formation with the exception that $T\:$-$\:T_{dp} < 0$ for relative humidity of 100 $\%$. As it can be seen in Fig. \ref{tempvsdew15}, $T\:$-$\:T_{dp}$ no where in the atmosphere drops below zero. This suggests that despite hours of cloud formation no precipitation happened during this day. Looking at precipitation data provided by Tromsdalen weather station\footnote{https://goo.gl/rmGC6E}, there has been several intervals of precipitation in the amount of 0.2, 0.1, and 0.1 $mm$ at 06:00, 07:00, and 22:00 during this day.
 
 %...---... The convergence behavior of RH can be a sign of presence of lifting condensation level (LCL)\footnote{Lifting condensation level (LCL) is the height up to which an air parcel's temperature will decrease under adiabatic lapse rate and once it reaches this level the air parcel will have $RH$ of 100 $\%$.} at different heights and at different hours of the day. Considering the change in $RH$, potential temperature, temperature, and dew point at 06:00 it is possible that at this hour and around this height a cloud formation process (and possibly some precipitation) has occurred. The air in PBL at this hour has reached the LCL and moved above this level. Further lifting results in temperature decreases further and below the dew point. This results in water to go through a phase transition by releasing latent heat in the atmosphere. As result of this heat release the water vapor condenses into liquid water and forms clouds. As more air is lifted more clouds are produced and as clouds are lifted up further, liquid water may fall out of clouds. This will probably explain the strong decrease in humidity in Fig. \ref{humidity15} at 06:00. Another effect of the release of latent heat in the atmosphere is increase in ambient temperature at this height which explains the slight increase in the temperature seen in Fig. \ref{march15}. Also, once air reaches its saturation limit above the LCL it no longer follows the adiabatic lapse rate, but it follows the saturated adiabatic lapse rate. This is probably the reason we observe a slight divergence of potential temperature toward higher values. To test this scenario the data from the Tromsdalen observation station was checked. It appears that there has been a period of precipitation in the amounts of 0.2 $mm$ and 0.1 $mm$ at 06:00 and 07:00 respectively in the morning of the March 15.
  
@@ -416,22 +414,18 @@ Below is the evolution plot of the physical parameters at March 23 (Fig. \ref{ma
 
 Similar to day \ordinalnum{15} the energy budget of the day 23 was investigated (Fig. \ref{budget23}). Interestingly, during this day there is an interval of strong incoming shortwave that is, clearly, the dominant component of the incoming radiation. This can be a sign that at this time the sky has been clear. As a result of this strong incoming shortwave radiation the energy budget of the earth progressively increases. This increase continues until the sunset approaches where the intensity of shortwave decreases and the incoming longwave radiation dominates. 
 
-Sensible heat has a positive value during most of the day especially at mid-day. This can be regarded as a possible source of heat-generated turbulence and vertical mixing close to the surface. It appears that latent heat has negative values throughout the day. However, it is not as low as what we observed during day March 15. As the mid-day time becomes closer the evaporation increases. The increase in evaporation pulls even more energy out of the surface. This results in decrease in surface skin temperature 
-%Also, as a result of increase in the energy budget of the earth it is likely that this has had more heat-induced turbulence and vertical mixing close to the surface specially in the middle of the day. 
-
-\vspace{0.35cm}
-
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/budget23.png}
 \caption{The energy budget of the surface at March 23. Solid lines show the radiation of short and longwave radiation from the sky to the surface and dashed lines show the radiation from ground to the sky. The black solid line shows the net radiative balance at the ground. The purple and green lines are the latent and sensible heat fluxes at the surface respectively.}
 \label{budget23}
 \end{figure}
 
-\vspace{0.35cm}
+Sensible heat has a positive value during most of the day especially at mid-day. This can be regarded as a possible source of heat-generated turbulence and vertical mixing close to the surface. It appears that latent heat has negative values throughout the day. However, it is not as low as what we observed during day March 15. It was checked for the snow cover flag of the WRF model at during this day and the value of 0.98 was obtained for all hours during this day\footnote{The WRF manual states that a values of zero means no snow cover and a value of 1 means snow cover.}.As the mid-day time becomes closer the melting and evaporation increases. And the resulting released latent heat increases.
+%Also, as a result of increase in the energy budget of the earth it is likely that this has had more heat-induced turbulence and vertical mixing close to the surface specially in the middle of the day. 
 
 \subsubsection{Potential Temperature}
 
-Unlike March 15 the potential temperature during March 23 is not very stable at low altitudes. At early morning (03:00) PBL is stable, but as the sunrise approaches the potential temperature becomes less stable. At 12:00 an slight shift in potential temperature towards lower temperatures is observable. This shift shows an instability in PBL up to the height of $\sim$ 100 $m$. However, around afternoon and close to the sunset hour (18:00) the PBL becomes stable again. The energy budget plot (Fig. \ref{budget23}) can explain this behavior precisely. At early hours of the day there is no solar irradiation and the PBL is quite stable. However, through the day the solar irradiation warms up the surface until mid-day time where it reaches its maximum. At this time the surface temperature has reached its maximum and heat-convection generated by the surface causes all types of vertical mixing mechanisms above the surface. As a result of this vertical mixing the lower part of PBL becomes unstable. This process continues unitl the sunset time where the PBL becomes stable again. To examine the instability of the PBL at lower altitudes the all physical variables are plotted at the lowest 100 $m$ of the atmosphere (Fig. \ref{100m23}).
+Unlike March 15 the potential temperature during March 23 is not very stable at low altitudes. At early morning (03:00) PBL is stable, but as the sunrise approaches the potential temperature becomes less stable. At 12:00 an slight shift in potential temperature towards lower temperatures is observable. This shift shows an instability in PBL up to the height of $\sim$ 100 $m$. However, around afternoon and close to the sunset hour (18:00) the PBL becomes stable again. The energy budget plot (Fig. \ref{budget23}) can explain this behavior precisely. 
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/100m23.png}
@@ -439,12 +433,13 @@ Unlike March 15 the potential temperature during March 23 is not very stable at 
 \label{100m23}
 \end{figure}
 
+At early hours of the day there is no solar irradiation and the PBL is quite stable. However, through the day the solar irradiation warms up the surface until mid-day time where it reaches its maximum. At this time the surface temperature has reached its maximum and heat-convection generated by the surface causes all types of vertical mixing mechanisms above the surface. As a result of this vertical mixing the lower part of PBL becomes unstable. This process continues unitl the sunset time where the PBL becomes stable again. To examine the instability of the PBL at lower altitudes the all physical variables are plotted at the lowest 100 $m$ of the atmosphere (Fig. \ref{100m23}).
+
 As discussed above at early hours of the day PBL is quite stable, but at mid-day time it becomes unstable. Looking at potential temperature plot. although not strong, an increase with height is still observable at 12:00 and 15:00 (compare the bottom and top tick marks at 270.5 $K$). The possible reason for lack of strong instability could be the low amount of sensible heat and existence of possible snow/water on the surface (see 4.3.1).
 
 \subsubsection{Mixing Ratio, Saturated Mixing Ratio, Relative Humidity, and Dew point}
 
 Looking at mixing ratio and RH (Fig. \ref{humidity23}) we can see a trend. In the beginning of the day the water vapor and RH have relatively low values, but as we go through the day the water vapor and, accordingly, RH increase until they reach their maximum value in the middle of the day (at 12:00) close to the surface. This agrees with our results from the last section that in the middle of the day the incoming shortwave radiation reaches its maximum value which in turn increases the water evaporation and RH at this time (see 4.5.1 for more details).
-
 
 \begin{figure}[bhp]
 \includegraphics[width=\textwidth]{/home/ubuntu/nozhan/science/tromuni/semester/s17/individual/report/pics/humidity23.png}
@@ -468,7 +463,7 @@ Variation of both U and V components of the wind decreases with height which in 
 
 As it was mentioned in the beginning of this chapter, in some figures (e.g. Fig. \ref{march15}) at the time 00:00 most of the parameters show a peculiar behavior that is not seen at other times of the day. Thus, it was decided to exclude this time interval from the discussion part. However, it is of special interest as to correctly recognize whether this behavior is a computational artifact or the natural behavior of those physical parameters. 
 
-After further investigation it was found that the observed pattern is the result of a well known problem called ``spin up problem". Since for every single day of this study (March 10 to March 15) the simulation the WRF model was run separately from the mid-night time (00:00) of each day, it takes some time for the physical variables in the WRF model to reach their true values. The correction procedure of this problem is out of the scope of this work, but Fig. \ref{artifact} shows how the seemingly computational artifact at 00:00 converges smoothly toward the later values. It has to be noted that the time intervals in this plot are ten-minute intervals.
+After further investigation it was found that the observed pattern is the result of a well known problem called ``spin up problem". Since for every single day of this study (March 10 to March 15) the simulation the WRF model was run separately from the mid-night time (00:00) of each day, it takes some time for the physical variables in the WRF model to reach their true values. The correction procedure of this problem is beyond the scope of this work, but Fig. \ref{artifact} shows how the seemingly computational artifact at 00:00 converges smoothly toward the later values. It has to be noted that the time intervals in this plot are ten-minute intervals.
 
 %similar parameters as Fig. \ref{march15} with one major difference. Fig. \ref{artifact} shows the evolution of these parameters at ten-minute intervals. The ten-minute interval is the lowest time resolution of this work. The aim is to test whether this behavior happens at 00:00 and then gradually converges towards later values or it happens at 00:00 and then suddenly jumps to later values. The former behavior is a sign that this is the natural behavior of the physical parameters. However, if the latter happens it is highly probable that this behavior is a computational artifact. Considering the behavior of parameters in Fig. \ref{artifact}, it appears that there is a gradual convergence from 00:00 to later values in potential temperature, temperature, and the V component of the wind. However, before we jump to conclusion, a closer look at mixing ratio and U component of the wind suggests other wise. A sudden jump in mixing ratio and U component of the wind graphs is more obvious.
 
@@ -496,7 +491,128 @@ Finally, the writer of this study realized that seemingly simple methods such as
 
 \newpage
 
-\section*{Refernce}
+\section{Appendix A}
+
+A sample of namelist.input file that was used in this study. \\
+
+\vspace{0.5cm}
+
+time-control\\
+ run-days                            = 1,\\
+ run-hours                           = 00,\\
+ run-minutes                         = 0,\\
+ run-seconds                         = 0,\\
+ start-year                          = 2016, 2016, 2016,\\
+ start-month                         = 03,   03,   03,\\
+ start-day                           = 25,   25,   25,\\
+ start-hour                          = 00,   00,   00,\\
+ start-minute                        = 00,   00,   00,\\
+ start-second                        = 00,   00,   00,\\
+ end-year                            = 2016, 2016, 2016,\\
+ end-month                           = 03,   03,   03,\\
+ end-day                             = 26,   26,   26,\\
+ end-hour                            = 00,   00,   00,\\
+ end-minute                          = 00,   00,   00,\\
+ end-second                          = 00,   00,   00,\\
+ interval-seconds                    = 21600\\
+ input-from-file                     = .ture.,.true.,.true.,\\
+ history-interval                    = 10,  10,   10,\\
+ frames-per-outfile                  = 144, 144, 144,\\
+ restart                             = .false.,\\
+ restart-interval                    = 500000,\\
+ io-form-history                     = 2\\
+ io-form-restart                     = 2\\
+ io-form-input                       = 2\\
+ io-form-boundary                    = 2\\
+ debug-level                         = 0\\
+ /\\
+
+ domains\\
+ time-step                           = 60,\\
+ time-step-fract-num                 = 0,\\
+ time-step-fract-den                 = 1,\\
+ max-dom                             = 3,\\
+ e-we                                = 100,    151,   301,\\
+ e-sn                                = 100,    151,   301,\\
+ e-vert                              = 51,    51,    51,\\
+ p-top-requested                     = 1000,\\
+ num-metgrid-levels                  = 38,\\
+ num-metgrid-soil-levels             = 4,\\
+ dx                                  = 18000, 6000,  2000,\\
+ dy                                  = 18000, 6000,  2000,\\
+ grid-id                             = 1,     2,     3,\\
+ parent-id                           = 0,     1,     2,\\
+ i-parent-start                      = 1,     25,    30,\\
+ j-parent-start                      = 1,     25,    30,\\
+ parent-grid-ratio                   = 1,     3,     3,\\
+ parent-time-step-ratio              = 1,     3,     3,\\
+ feedback                            = 1,	\\
+ smooth-option                       = 0\\
+ eta-levels =   1.0000, 0.9980, 0.9955, 0.9925, 0.9890, 0.9850,\\
+                0.9805, 0.9755, 0.9700, 0.9640, 0.9575, 0.9505,\\
+                0.9430, 0.9350, 0.9265, 0.9170, 0.9060, 0.8930,\\
+                0.8775, 0.8590, 0.8363, 0.8104, 0.7803, 0.7456,\\
+                0.7059, 0.6615, 0.6126, 0.5594, 0.5041, 0.4479,\\
+                0.3919, 0.3384, 0.2897, 0.2474, 0.2107, 0.1792,\\
+                0.1523, 0.1293, 0.1093, 0.0917, 0.0763, 0.0629,\\
+                0.0513, 0.0413, 0.0328, 0.0255, 0.0194, 0.0144,\\
+                0.0104, 0.0071, 0.0000,\\
+ /\\
+
+ physics\\
+ mp-physics                          = 4,     4,     4,\\
+ ra-lw-physics                       = 5,     5,     5,\\
+ ra-sw-physics                       = 5,     5,     5,\\
+ radt                                = 9,     3,     1,\\
+ sf-sfclay-physics                   = 2,     2,     2,\\
+ sf-surface-physics                  = 2,     2,     2,\\
+ bl-pbl-physics                      = 2,     2,     2,\\
+ bldt                                = 0,     0,     0,\\
+ cu-physics                          = 2,     0,     0,\\
+ cudt                                = 5,     5,     5,\\
+ isfflx                              = 1,\\
+ ifsnow                              = 1,\\
+ icloud                              = 1,\\
+ surface-input-source                = 1,\\
+ num-soil-layers                     = 4,\\
+ sf-urban-physics                    = 2,     2,     2,\\
+ /\\
+
+ fdda\\
+ /\\
+
+ dynamics\\
+ w-damping                           = 0,\\
+ diff-opt                            = 1,\\
+ km-opt                              = 4,\\
+ diff-6th-opt                        = 0,     0,      0,\\
+ diff-6th-factor                     = 0.12,   0.12,   0.12,\\
+ base-temp                           = 290.\\
+ damp-opt                            = 0,\\
+ zdamp                               = 5000.,  5000.,  5000.,\\
+ dampcoef                            = 0.2,    0.2,    0.2\\
+ khdif                               = 0,      0,      0,\\
+ kvdif                               = 0,      0,      0,\\
+ non-hydrostatic                     = .true., .true., .true.,\\
+ moist-adv-opt                       = 1,      1,      1,     \\
+ scalar-adv-opt                      = 1,      1,      1,     \\
+ /\\
+
+ bdy-control\\
+ spec-bdy-width                      = 5,\\
+ spec-zone                           = 1,\\
+ relax-zone                          = 4,\\
+ specified                           = .true., .false.,.false.,\\
+ nested                              = .false., .true., .true.,\\
+ /\\
+
+ grib2\\
+ /\\
+
+\newpage
+
+\bibliographystyle{plainnat}
+\bibliography{science}
 
 %https://en.wikipedia.org/wiki/Arden_Buck_equation
 
